@@ -27,14 +27,24 @@ export default {
   amount: 50,
   render: ({ value, target, amount }) => html`
     <style>
-      div,
-      code {
-        padding: 1em;
+      :host {
+        --swatch-padding: 1em;
+        --value-alignment: center;
+        --value-alpha: 0.8;
+        --value-padding: var(--swatch-padding);
+        --value-font-size: 1.25em;
       }
+
+      div {
+        padding: var(--swatch-padding);
+      }
+
       code {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, var(--value-alpha));
         display: block;
-        text-align: center;
+        font-size: var(--value-font-size);
+        padding: var(--value-padding);
+        text-align: var(--value-alignment);
       }
     </style>
     ${isMixed(value, target, amount)}

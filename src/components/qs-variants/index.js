@@ -13,12 +13,14 @@ export default {
     html`
       <style>
         :host {
+          --grid-flow: row wrap;
+          --swatch-size: 25%;
           display: flex;
-          flex-flow: row wrap;
+          flex-flow: var(--grid-flow);
         }
 
         qs-swatch {
-          flex-basis: 25%;
+          flex-basis: var(--swatch-size);
           flex-grow: 1;
         }
       </style>
