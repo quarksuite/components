@@ -7,7 +7,7 @@ define('qs-typography', Typography);
 const el = document.createElement('qs-typography');
 
 export default {
-  title: 'Typography|<qs-typography>',
+  title: 'Fonts|<qs-typography>',
   decorators: [withKnobs]
 };
 
