@@ -1,0 +1,25 @@
+{
+  "name": "@quarksuite/components",
+  "version": "0.1.0",
+  "description": "Web components for building Quarksuite UIs.",
+  "main": "index.js",
+  "author": "Chatman R. Jr",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@storybook/addon-knobs": "^5.2.6",
+    "@storybook/html": "^5.2.6",
+    "babel-loader": "^8.0.6",
+    "postcss": "^7.0.23",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "raw-loader": "^4.0.0"
+  },
+  "scripts": {
+    "storybook": "start-storybook"
+  },
+  "dependencies": {
+    "@quarksuite/core": "^2.0.2",
+    "hybrids": "^4.0.3"
+  }
+}
