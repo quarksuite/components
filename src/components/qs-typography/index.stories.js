@@ -4,18 +4,18 @@ import Typography from './';
 
 define('qs-typography', Typography);
 
-const el = document.createElement('qs-typography');
-
 export default {
   title: 'Fonts|<qs-typography>',
   decorators: [withKnobs]
 };
 
 export const baseState = () => {
+  const el = document.createElement('qs-typography');
   return el;
 };
 
 export const setFamily = () => {
+  const el = document.createElement('qs-typography');
   el.family = radios(
     'Family',
     {
@@ -30,6 +30,7 @@ export const setFamily = () => {
 };
 
 export const setContent = () => {
+  const el = document.createElement('qs-typography');
   el.family = radios(
     'Family',
     {

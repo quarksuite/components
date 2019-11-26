@@ -1,10 +1,5 @@
 import { define } from 'hybrids';
-import {
-  withKnobs,
-  boolean,
-  number,
-  radios
-} from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, radios } from '@storybook/addon-knobs';
 import Scheme from './';
 
 define('qs-scheme', Scheme);
@@ -14,13 +9,13 @@ export default {
   decorators: [withKnobs]
 };
 
-const el = document.createElement('qs-scheme');
-
 export const baseState = () => {
+  const el = document.createElement('qs-scheme');
   return el;
 };
 
 export const setType = () => {
+  const el = document.createElement('qs-scheme');
   el.type = radios(
     'Type',
     {
@@ -38,6 +33,7 @@ export const setType = () => {
 };
 
 export const setDistance = () => {
+  const el = document.createElement('qs-scheme');
   el.type = radios(
     'Type',
     {
@@ -67,6 +63,7 @@ export const setDistance = () => {
 };
 
 export const setAccented = () => {
+  const el = document.createElement('qs-scheme');
   el.type = radios(
     'Type',
     {

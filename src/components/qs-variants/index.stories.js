@@ -9,13 +9,13 @@ export default {
   decorators: [withKnobs]
 };
 
-const el = document.createElement('qs-variants');
-
 export const baseState = () => {
+  const el = document.createElement('qs-variants');
   return el;
 };
 
 export const setType = () => {
+  const el = document.createElement('qs-variants');
   el.type = radios(
     'Type',
     {
@@ -30,6 +30,7 @@ export const setType = () => {
 };
 
 export const setLimit = () => {
+  const el = document.createElement('qs-variants');
   el.type = radios(
     'Type',
     {
@@ -50,6 +51,7 @@ export const setLimit = () => {
 };
 
 export const setContrast = () => {
+  const el = document.createElement('qs-variants');
   el.type = radios(
     'Type',
     {
@@ -77,6 +79,7 @@ export const setContrast = () => {
 };
 
 export const setMode = () => {
+  const el = document.createElement('qs-variants');
   el.type = radios(
     'Type',
     {
