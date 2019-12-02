@@ -2,20 +2,20 @@ import { define } from 'hybrids';
 import { withKnobs, boolean, number, radios } from '@storybook/addon-knobs';
 import Variants from './';
 
-define('qs-variants', Variants);
+define('qb-variants', Variants);
 
 export default {
-  title: 'Color|<qs-variants>',
+  title: 'Color|<qb-variants>',
   decorators: [withKnobs]
 };
 
 export const baseState = () => {
-  const el = document.createElement('qs-variants');
+  const el = document.createElement('qb-variants');
   return el;
 };
 
 export const setType = () => {
-  const el = document.createElement('qs-variants');
+  const el = document.createElement('qb-variants');
   el.type = radios(
     'Type',
     {
@@ -30,7 +30,7 @@ export const setType = () => {
 };
 
 export const setLimit = () => {
-  const el = document.createElement('qs-variants');
+  const el = document.createElement('qb-variants');
   el.type = radios(
     'Type',
     {
@@ -51,7 +51,7 @@ export const setLimit = () => {
 };
 
 export const setContrast = () => {
-  const el = document.createElement('qs-variants');
+  const el = document.createElement('qb-variants');
   el.type = radios(
     'Type',
     {
@@ -79,7 +79,7 @@ export const setContrast = () => {
 };
 
 export const setMode = () => {
-  const el = document.createElement('qs-variants');
+  const el = document.createElement('qb-variants');
   el.type = radios(
     'Type',
     {

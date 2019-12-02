@@ -2,20 +2,20 @@ import { withKnobs, text, radios } from '@storybook/addon-knobs';
 import { define } from 'hybrids';
 import Typography from './';
 
-define('qs-typography', Typography);
+define('qb-typography', Typography);
 
 export default {
-  title: 'Fonts|<qs-typography>',
+  title: 'Fonts|<qb-typography>',
   decorators: [withKnobs]
 };
 
 export const baseState = () => {
-  const el = document.createElement('qs-typography');
+  const el = document.createElement('qb-typography');
   return el;
 };
 
 export const setFamily = () => {
-  const el = document.createElement('qs-typography');
+  const el = document.createElement('qb-typography');
   el.family = radios(
     'Family',
     {
@@ -30,7 +30,7 @@ export const setFamily = () => {
 };
 
 export const setContent = () => {
-  const el = document.createElement('qs-typography');
+  const el = document.createElement('qb-typography');
   el.family = radios(
     'Family',
     {

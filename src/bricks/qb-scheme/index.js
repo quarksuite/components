@@ -1,7 +1,7 @@
 import { html } from 'hybrids';
 import { color } from '@quarksuite/core';
 
-import QSSwatch from '../qs-swatch';
+import QBColor from '../qb-swatch';
 
 export default {
   base: '#348ec9',
@@ -17,8 +17,8 @@ export default {
       ).map(
         color =>
           html`
-            <qs-swatch value="${color.base}"></qs-swatch>
+            <qb-color value="${color.base}"></qb-color>
           `
       )}
-    `.define({ QSSwatch })
+    `.define({ QBColor })
 };
