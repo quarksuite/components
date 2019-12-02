@@ -1,33 +1,9 @@
 import { html } from 'hybrids';
 import { color } from '@quarksuite/core';
 
-const isMixed = (value, target, amount) => {
-  return target
-    ? html`
-        <style>
-          div {
-            background: ${color.mix(value, target, amount)};
-          }
-        </style>
-        <div>
-          <code>${color.mix(value, target, amount)}</code>
-        </div>
-      `
-    : html`
-        <style>
-          div {
-            background: ${value};
-          }
-        </style>
-        <div><code>${value}</code></div>
-      `;
-};
-
 export default {
-  value: '#aaaaaa',
-  target: undefined,
-  amount: 50,
-  render: ({ value, target, amount }) => html`
+  value: '#348ec9',
+  render: ({ value }) => html`
     <style>
       :host {
         --swatch-padding: 2em;
@@ -38,6 +14,7 @@ export default {
       }
 
       div {
+        background: ${value};
         padding: var(--swatch-padding);
       }
 
@@ -49,6 +26,6 @@ export default {
         text-align: var(--value-alignment);
       }
     </style>
-    ${isMixed(value, target, amount)}
+    <div><code>${value}</code></div>
   `
 };
