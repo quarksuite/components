@@ -1,10 +1,20 @@
 {
   "name": "@quarksuite/gui-components",
-  "version": "0.1.0",
   "description": "Web components for building Quarksuite GUI.",
-  "main": "index.js",
-  "author": "Chatman R. Jr",
+  "version": "0.1.0",
   "license": "MPL-2.0",
+  "files": [
+    "dist-*/",
+    "bin/",
+    "assets/"
+  ],
+  "pika": true,
+  "sideEffects": false,
+  "dependencies": {
+    "@quarksuite/core": "^2.0.2",
+    "@webcomponents/webcomponentsjs": "^2.4.0",
+    "hybrids": "^4.0.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@pika/pack": "^0.5.0",
@@ -20,21 +30,7 @@
     "postcss-preset-env": "^6.7.0",
     "raw-loader": "^4.0.0"
   },
-  "scripts": {
-    "storybook": "start-storybook",
-    "build": "pika build"
-  },
-  "dependencies": {
-    "@quarksuite/core": "^2.0.2",
-    "@webcomponents/webcomponentsjs": "^2.4.0",
-    "hybrids": "^4.0.3"
-  },
-  "@pika/pack": {
-    "pipeline": [
-      ["@pika/plugin-standard-pkg", { "exclude": [ "tests/**/*" ] }],
-      ["@pika/plugin-copy-assets"],
-      ["@pika/plugin-build-node"],
-      ["@pika/plugin-build-web"]
-    ]
-  }
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js",
+  "module": "dist-web/index.js"
 }
