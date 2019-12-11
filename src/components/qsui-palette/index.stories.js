@@ -4,7 +4,7 @@ import Color from './';
 define('qsui-palette', Color);
 
 export default {
-  title: 'UI|<qsui-palette>'
+  title: 'Components|<qsui-palette>'
 };
 
 export const baseState = () => {
