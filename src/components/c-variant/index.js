@@ -1,13 +1,19 @@
 import { html } from 'hybrids';
-import { color } from '@quarksuite/core';
+import { color, typography } from '@quarksuite/core';
 import BSwatch from '../b-swatch';
+
+const addToLimit = (host, event) => ++host.limit;
+const removeFromLimit = (host, event) => {
+  if (host.limit === 1) return;
+  --host.limit;
+};
 
 export default {
   swatch: '#aaaaaa',
   type: 'tints',
   limit: 3,
   contrast: 95,
-  mode: 'logarithmic',
+  mode: '',
   render: ({ swatch, type, limit, contrast, mode }) =>
     html`
       <style>
@@ -16,43 +22,60 @@ export default {
           flex-flow: row wrap;
         }
 
-        .category {
-          display: flex;
-          flex-flow: row wrap;
-          flex-grow: 1;
-          align-content: flex-start;
+        label {
+          display: block;
+          font-family: ${typography.system('sans')};
+          font-size: 1.5em;
         }
 
         b-swatch {
           --swatch-padding: 1em;
-          flex-grow: 1;
+          --value-size: 1.25em;
+          flex: 1;
+        }
+
+        .category, .palette {
+          display: flex;
+          flex-flow: row wrap;
+          flex: 1;
+          align-content: start;
+        }
+
+        .category {
+          min-height: 100%;
+        }
+
+        .limit-ctrl {
+          background: transparent;
+          border: none;
+          font-size: 2em;
         }
 
         .controls {
-          flex-basis: 33%;
-          margin: 1em 0;
+          display: flex;
+          flex-basis: 100%;
+          justify-content: space-between;
+          margin: 1.5em 0;
         }
 
-        label {
-          display: block;
-          font-size: 1.5em;
+        .contrast, .mode {
+          flex-basis: 49%;
         }
+
       </style>
       <div class="controls">
-        <label for="limit">Limit<label>
-        <input id="limit" type="number" max="9"value="${limit}" oninput="${html.set(
-      'limit'
-    )}">
-      </div>
-      <div class="controls">
-        <label for="contrast">Contrast<label>
-        <input id="contrast" step="5" type="range" value="${contrast}" oninput="${html.set(
+        <div class="contrast">
+          <label for="contrast">Contrast<label>
+          <input id="contrast" type="range" value="${contrast}" oninput="${html.set(
       'contrast'
     )}">
-      </div>
-      <div class="controls">
-        <label for="mode">Mode<label>
-        <input id="mode" value="${mode}" oninput="${html.set('mode')}">
+        </div>
+        <div class="mode">
+          <label for="mode">Mode<label>
+          <input id="mode" value="${mode}" oninput="${html.set(
+      'mode'
+    )}" placeholder='"linear" to toggle mode'>
+        </div>
       </div>
       ${Object.values(
         color
@@ -60,12 +83,18 @@ export default {
           .map(
             color => html`
               <div class="category">
-                ${color[type.replace(/s$/g, '')].map(
-                  s =>
-                    html`
-                      <b-swatch class="variant" value="${s}"></b-swatch>
-                    `
-                )}
+                <button class="limit-ctrl" onclick="${removeFromLimit}">
+                  -
+                </button>
+                <div class="palette">
+                  ${color[type.replace(/s$/g, '')].map(
+                    s =>
+                      html`
+                        <b-swatch class="variant" value="${s}"></b-swatch>
+                      `
+                  )}
+                </div>
+                <button class="limit-ctrl" onclick="${addToLimit}">+</button>
               </div>
             `
           )

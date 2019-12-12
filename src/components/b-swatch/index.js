@@ -1,4 +1,5 @@
 import { html } from 'hybrids';
+import { typography } from '@quarksuite/core';
 
 export default {
   value: '',
@@ -19,6 +20,7 @@ export default {
 
       label {
         display: block;
+        font-family: ${typography.system('sans')};
         font-size: var(--label-size);
         margin-bottom: 1em;
       }
@@ -27,7 +29,7 @@ export default {
       code {
         background: rgba(255, 255, 255, 0.8);
         display: block;
-        font-family: monospace;
+        font-family: ${typography.system('monospace')};
         font-size: var(--value-size);
         padding: var(--value-padding);
         text-align: center;
