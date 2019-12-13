@@ -9,9 +9,9 @@ export default {
     <style>
       :host {
         --label-size: 2em;
-        --swatch-padding: 4em;
+        --swatch-padding: 2em;
         --value-padding: calc(var(--swatch-padding) / 2);
-        --value-size: 1.5em;
+        --value-size: 1.25em;
       }
 
       div {

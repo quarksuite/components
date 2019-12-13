@@ -2,11 +2,14 @@ import { html } from 'hybrids';
 import { color, typography } from '@quarksuite/core';
 import BSwatch from '../b-swatch';
 
-const addToLimit = (host, event) => ++host.limit;
-const removeFromLimit = (host, event) => {
+const addToLimit = host => ++host.limit;
+const removeFromLimit = host => {
   if (host.limit === 1) return;
   --host.limit;
 };
+
+const setLogBlend = (host, event) => (host.mode = event.target.value);
+const setLnBlend = (host, event) => (host.mode = event.target.value);
 
 export default {
   swatch: '#aaaaaa',
@@ -14,7 +17,12 @@ export default {
   limit: 3,
   contrast: 95,
   mode: '',
-  render: ({ swatch, type, limit, contrast, mode }) =>
+  output: ({ swatch, type, limit, contrast, mode }) =>
+    color.palette(swatch, {
+      [type]: { limit, contrast, mode },
+      format: 'hex'
+    }),
+  render: ({ swatch, type, limit, contrast, mode, output }) =>
     html`
       <style>
         :host {
@@ -22,10 +30,21 @@ export default {
           flex-flow: row wrap;
         }
 
-        label {
+        label, fieldset {
           display: block;
           font-family: ${typography.system('sans')};
-          font-size: 1.5em;
+          font-size: 1.25em;
+        }
+
+        fieldset {
+          border: 2px solid;
+          display: flex;
+          flex-flow: row wrap;
+          padding: 0.5em;
+        }
+
+        legend {
+          font-weight: bold;
         }
 
         b-swatch {
@@ -62,6 +81,13 @@ export default {
           flex-basis: 49%;
         }
 
+        .mode label {
+          display: inline;
+          font-size: 1em;
+          flex: 1;
+          text-align: center;
+        }
+
       </style>
       <div class="controls">
         <div class="contrast">
@@ -70,34 +96,29 @@ export default {
       'contrast'
     )}">
         </div>
-        <div class="mode">
-          <label for="mode">Mode<label>
-          <input id="mode" value="${mode}" oninput="${html.set(
-      'mode'
-    )}" placeholder='"linear" to toggle mode'>
-        </div>
+        <fieldset class="mode">
+          <legend>Blend Mode</legend>
+          <label>complex <input type="radio" name="mode" value="logarithmic" onchange="${setLogBlend}" checked/></label>
+          <label>basic <input type="radio"  name="mode" value="linear" onchange="${setLnBlend}"/></label>
+        </fieldset>
       </div>
-      ${Object.values(
-        color
-          .palette(swatch, { [type]: { limit, contrast, mode }, format: 'hex' })
-          .map(
-            color => html`
-              <div class="category">
-                <button class="limit-ctrl" onclick="${removeFromLimit}">
-                  -
-                </button>
-                <div class="palette">
-                  ${color[type.replace(/s$/g, '')].map(
-                    s =>
-                      html`
-                        <b-swatch class="variant" value="${s}"></b-swatch>
-                      `
-                  )}
-                </div>
-                <button class="limit-ctrl" onclick="${addToLimit}">+</button>
-              </div>
-            `
-          )
+      ${Object.values(output).map(
+        color => html`
+          <div class="category">
+            <button class="limit-ctrl" onclick="${removeFromLimit}">
+              -
+            </button>
+            <div class="palette">
+              ${color[type.replace(/s$/g, '')].map(
+                s =>
+                  html`
+                    <b-swatch class="variant" value="${s}"></b-swatch>
+                  `
+              )}
+            </div>
+            <button class="limit-ctrl" onclick="${addToLimit}">+</button>
+          </div>
+        `
       )}
     `.define({ BSwatch })
 };
