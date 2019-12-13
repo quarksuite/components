@@ -14,7 +14,8 @@ export default {
   tints: false,
   tones: false,
   shades: false,
-  render: ({ base, tints, tones, shades }) =>
+  format: 'hex',
+  render: ({ base, tints, tones, shades, format }) =>
     html`
       <style>
         fieldset {
@@ -87,15 +88,25 @@ export default {
       <div class="variants">
         ${tints &&
           html`
-            <c-variant swatch="${base}"></c-variant>
+            <c-variant swatch="${base}" format="${format}"></c-variant>
           `}
         ${tones &&
           html`
-            <c-variant swatch="${base}" type="tones" limit="2"></c-variant>
+            <c-variant
+              swatch="${base}"
+              type="tones"
+              limit="2"
+              format=${format}
+            ></c-variant>
           `}
         ${shades &&
           html`
-            <c-variant swatch="${base}" type="shades" limit="2"></c-variant>
+            <c-variant
+              swatch="${base}"
+              type="shades"
+              limit="2"
+              format="${format}"
+            ></c-variant>
           `}
       </div>
     `.define({ BSwatch, CVariant })

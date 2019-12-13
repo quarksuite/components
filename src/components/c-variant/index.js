@@ -17,12 +17,13 @@ export default {
   limit: 3,
   contrast: 95,
   mode: '',
-  output: ({ swatch, type, limit, contrast, mode }) =>
+  format: 'hex',
+  output: ({ swatch, type, limit, contrast, format, mode }) =>
     color.palette(swatch, {
       [type]: { limit, contrast, mode },
-      format: 'hex'
+      format
     }),
-  render: ({ swatch, type, limit, contrast, mode, output }) =>
+  render: ({ swatch, type, limit, contrast, mode, format, output }) =>
     html`
       <style>
         :host {
@@ -49,7 +50,7 @@ export default {
 
         b-swatch {
           --swatch-padding: 1em;
-          --value-size: 1.25em;
+          --value-size: 1em;
           flex: 1;
         }
 

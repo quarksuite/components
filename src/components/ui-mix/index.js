@@ -83,10 +83,12 @@ export default {
 
         .format {
           display: flex;
+          flex-flow: row wrap;
         }
 
         .format label {
           flex: 1;
+          font-size: 1.25em;
           text-align: center;
         }
       </style>
