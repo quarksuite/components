@@ -17,16 +17,3 @@ export const setValue = () => {
   el.value = '#348ec9';
   return el;
 };
-
-export const setInputMode = () => {
-  const el = document.createElement('b-swatch');
-  el.input = true;
-  return el;
-};
-
-export const setLabel = () => {
-  const el = document.createElement('b-swatch');
-  el.input = true;
-  el.label = 'Base';
-  return el;
-};
