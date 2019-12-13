@@ -1,10 +1,11 @@
 import { html } from 'hybrids';
 import { color } from '@quarksuite/core';
+import BSwatch from '../b-swatch';
 import UIVariants from '../ui-variants';
 
 export default {
   base: '#348ec9',
-  type: 'dual color',
+  type: 'monochromatic',
   distance: 30,
   accented: false,
   output: ({ base, type, distance, accented }) =>
@@ -26,13 +27,14 @@ export default {
           flex-basis: 100%;
         }
       </style>
-      <ui-variants class="base" base="${base}"></ui-variants>
-      ${type !== 'monochromatic' &&
-        Object.values(output.filter((_, i) => i !== 0)).map(
-          color =>
-            html`
-              <ui-variants base="${color.base}"></ui-variants>
-            `
-        )}
-    `.define({ UIVariants })
+      ${Object.values(output).map(
+        color =>
+          html`
+            <ui-variants
+              base="${color.base}"
+              onchange="${html.set('base')}"
+            ></ui-variants>
+          `
+      )}
+    `.define({ BSwatch, UIVariants })
 };

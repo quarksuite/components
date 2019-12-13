@@ -11,9 +11,3 @@ export const baseState = () => {
   const el = document.createElement('ui-mix');
   return el;
 };
-
-export const setShowOutput = () => {
-  const el = document.createElement('ui-mix');
-  el.showOutput = true;
-  return el;
-};

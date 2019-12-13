@@ -98,8 +98,8 @@ export default {
         </div>
         <fieldset class="mode">
           <legend>Blend Mode</legend>
-          <label>complex <input type="radio" name="mode" value="logarithmic" onchange="${setLogBlend}" checked/></label>
-          <label>basic <input type="radio"  name="mode" value="linear" onchange="${setLnBlend}"/></label>
+          <label><input type="radio" name="mode" value="logarithmic" onchange="${setLogBlend}" checked/> complex</label>
+          <label><input type="radio"  name="mode" value="linear" onchange="${setLnBlend}"/> basic</label>
         </fieldset>
       </div>
       ${Object.values(output).map(

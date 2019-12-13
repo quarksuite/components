@@ -3,17 +3,18 @@ import { color, typography } from '@quarksuite/core';
 import BSwatch from '../b-swatch';
 import CVariant from '../c-variant';
 
-const toggleTints = (host, event) => (host.tints = event.target.checked);
-const toggleTones = (host, event) => (host.tones = event.target.checked);
-const toggleShades = (host, event) => (host.shades = event.target.checked);
+const toggleV = (host, event) => {
+  if (event.target.value === 'tints') host.tints = event.target.checked;
+  if (event.target.value === 'tones') host.tones = event.target.checked;
+  if (event.target.value === 'shades') host.shades = event.target.checked;
+};
 
 export default {
   base: '#348ec9',
-  tints: true,
+  tints: false,
   tones: false,
-  shades: true,
-  input: false,
-  render: ({ base, tints, tones, shades, input }) =>
+  shades: false,
+  render: ({ base, tints, tones, shades }) =>
     html`
       <style>
         fieldset {
@@ -50,47 +51,37 @@ export default {
           align-content: start;
         }
       </style>
-      ${input
-        ? html`
-            <b-swatch
-              class="base"
-              value="${base}"
-              input
-              oninput="${html.set('base')}"
-            ></b-swatch>
-          `
-        : html`
-            <b-swatch class="base" value="${base}"></b-swatch>
-          `}
+      <b-swatch class="base" value="${base}"></b-swatch>
       <form action="">
         <fieldset>
           <legend>Toggle Variants</legend>
-          <label
-            >tints
+          <label>
             <input
               type="checkbox"
               name="variant"
               value="tints"
-              onchange="${toggleTints}"
-              checked
-          /></label>
-          <label
-            >tones
+              onchange="${toggleV}"
+            />
+            tints</label
+          >
+          <label>
             <input
               type="checkbox"
               name="variant"
               value="tones"
-              onchange="${toggleTones}"
-          /></label>
-          <label
-            >shades
+              onchange="${toggleV}"
+            />
+            tones</label
+          >
+          <label>
             <input
               type="checkbox"
               name="variant"
               value="shades"
-              onchange="${toggleShades}"
-              checked
-          /></label>
+              onchange="${toggleV}"
+            />
+            shades</label
+          >
         </fieldset>
       </form>
       <div class="variants">
