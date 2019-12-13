@@ -2,8 +2,6 @@ import { html } from 'hybrids';
 import { color, typography } from '@quarksuite/core';
 import BSwatch from '../b-swatch';
 
-const toggleFormat = (host, event) => (host.format = event.target.value);
-
 export default {
   base: 'red',
   blend: 'blue',
@@ -74,23 +72,6 @@ export default {
             tints: { limit: 1, contrast: 45 }
           })[0].tint[0]};
         }
-
-        .amount,
-        .format {
-          flex-basis: 48%;
-          margin-bottom: 2em;
-        }
-
-        .format {
-          display: flex;
-          flex-flow: row wrap;
-        }
-
-        .format label {
-          flex: 1;
-          font-size: 1.25em;
-          text-align: center;
-        }
       </style>
       <form action="">
         <div class="controls base">
@@ -120,37 +101,6 @@ export default {
             oninput="${html.set('amount')}"
           />
         </div>
-        <fieldset class="controls format">
-          <legend>Output Format</legend>
-          <label
-            ><input
-              type="radio"
-              name="format"
-              value="hex"
-              onchange="${toggleFormat}"
-              checked
-            />
-            hex</label
-          >
-          <label
-            ><input
-              type="radio"
-              name="format"
-              value="rgb"
-              onchange="${toggleFormat}"
-            />
-            rgb</label
-          >
-          <label
-            ><input
-              type="radio"
-              name="format"
-              value="hsl"
-              onchange="${toggleFormat}"
-            />
-            hsl</label
-          >
-        </fieldset>
       </form>
       <b-swatch value="${color.format(output, format)}"></b-swatch>
     `.define({ BSwatch })
