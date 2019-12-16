@@ -1,5 +1,5 @@
-import QSUIPalette from './qsui-palette';
+import UIMix from './ui-mix';
+import UIScheme from './ui-scheme';
+import UIVariants from './ui-variants';
 
-export {
-  QSUIPalette
-}
+export { UIMix, UIScheme, UIVariants };

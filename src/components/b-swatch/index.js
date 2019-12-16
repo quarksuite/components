@@ -2,10 +2,8 @@ import { html } from 'hybrids';
 import { typography } from '@quarksuite/core';
 
 export default {
-  value: '',
-  input: false,
-  label: 'Color',
-  render: ({ value, input, label }) => html`
+  value: '#111111',
+  render: ({ value }) => html`
     <style>
       :host {
         --swatch-padding: 2em;
@@ -14,6 +12,7 @@ export default {
       }
 
       div {
+        background: ${value};
         padding: var(--swatch-padding);
       }
 
@@ -27,8 +26,8 @@ export default {
       }
     </style>
 
-    <div style="background: ${value || '#111111'}">
-      <code>${value || '#111111'}</code>
+    <div>
+      <code>${value}</code>
     </div>
   `
 };
