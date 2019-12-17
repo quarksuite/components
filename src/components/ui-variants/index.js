@@ -39,6 +39,7 @@ export default {
 
         c-variant {
           flex: 1;
+          margin: 0 0.5em;
         }
 
         .base {

@@ -74,7 +74,6 @@ export default {
         .controls {
           display: flex;
           flex-basis: 100%;
-          justify-content: space-between;
           margin: 1.5em 0;
         }
 
@@ -92,8 +91,8 @@ export default {
       </style>
       <div class="controls">
         <div class="contrast">
-          <label for="contrast">Contrast<label>
-          <input id="contrast" type="range" value="${contrast}" oninput="${html.set(
+          <label for="contrast">Contrast: ${contrast}%<label>
+          <input id="contrast" type="range" value="${contrast}" min="1" oninput="${html.set(
       'contrast'
     )}">
         </div>

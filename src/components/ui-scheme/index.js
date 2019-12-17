@@ -11,7 +11,7 @@ const toggleAccented = (host, event) => (host.accented = event.target.checked);
 export default {
   base: '#348ec9',
   type: 'monochromatic',
-  distance: 15,
+  distance: 30,
   accented: false,
   format: 'hex',
   output: ({ base, type, distance, accented, format }) =>
@@ -40,12 +40,12 @@ export default {
 
         input[type='color'] {
           background: transparent;
-          border: 16px solid;
-          border-radius: 0.5em;
+          border: 8px solid;
+          border-radius: 0.25em;
           flex: 1;
           outline: none;
           padding: 0;
-          height: 75%;
+          height: 25%;
           width: 95%;
         }
 
@@ -66,7 +66,7 @@ export default {
         .base input {
           border-color: ${color.palette(base, {
             tints: { limit: 1, contrast: 45 }
-          })[0].tint[0]};
+          })[0].tint};
         }
 
         .format,
@@ -119,10 +119,8 @@ export default {
         .palette {
           display: flex;
           flex-flow: row wrap;
-        }
-
-        .palette.main {
-          flex-basis: 100%;
+          flex-grow: 1;
+          transition: flex-grow 0.5s;
         }
       </style>
       <form action="">
@@ -146,7 +144,7 @@ export default {
                 onchange="${toggleScheme}"
                 checked
               />
-              monochromatic</label
+              Monochromatic</label
             >
             <label
               ><input
@@ -155,7 +153,7 @@ export default {
                 value="complementary"
                 onchange="${toggleScheme}"
               />
-              complementary</label
+              Complementary</label
             >
             <label
               ><input
@@ -164,7 +162,7 @@ export default {
                 value="analogous"
                 onchange="${toggleScheme}"
               />
-              analogous</label
+              Analogous</label
             >
             <label
               ><input
@@ -173,7 +171,7 @@ export default {
                 value="split complementary"
                 onchange="${toggleScheme}"
               />
-              split complementary</label
+              Split</label
             >
             <label
               ><input
@@ -182,7 +180,7 @@ export default {
                 value="triadic"
                 onchange="${toggleScheme}"
               />
-              triadic</label
+              Triadic</label
             >
             <label
               ><input
@@ -191,7 +189,7 @@ export default {
                 value="dual color"
                 onchange="${toggleScheme}"
               />
-              dual color</label
+              Dual</label
             >
             <label
               ><input
@@ -200,7 +198,7 @@ export default {
                 value="tetradic"
                 onchange="${toggleScheme}"
               />
-              tetradic</label
+              Tetradic</label
             >
           </div>
           <div class="options">
@@ -208,12 +206,12 @@ export default {
               <label>
                 <input
                   type="range"
-                  min="15"
+                  min="30"
                   max="45"
                   value="${distance}"
                   oninput="${html.set('distance')}"
                 />
-                distance <small>valid: analogous, split, dual color</small>
+                Distance <small>(analogous, split, dual)</small>
               </label>
             </div>
             <div class="accented">
@@ -223,7 +221,7 @@ export default {
                   name="accented"
                   onchange="${toggleAccented}"
                 />
-                accented <small>valid: analogous, split</small></label
+                Accented? <small>(analogous, split)</small></label
               >
             </div>
           </div>
@@ -238,7 +236,7 @@ export default {
               onchange="${toggleFormat}"
               checked
             />
-            hex</label
+            Hex</label
           >
           <label
             ><input
@@ -247,7 +245,7 @@ export default {
               value="rgb"
               onchange="${toggleFormat}"
             />
-            rgb</label
+            RGB</label
           >
           <label
             ><input
@@ -256,7 +254,7 @@ export default {
               value="hsl"
               onchange="${toggleFormat}"
             />
-            hsl</label
+            HSL</label
           >
         </fieldset>
       </form>
@@ -264,20 +262,10 @@ export default {
         ${Object.values(output).map(
           (color, i) =>
             html`
-              ${i === 0
-                ? html`
-                    <ui-variants
-                      class="main"
-                      base="${color.base}"
-                      format="${format}"
-                    ></ui-variants>
-                  `
-                : html`
-                    <ui-variants
-                      base="${color.base}"
-                      format="${format}"
-                    ></ui-variants>
-                  `}
+              <ui-variants
+                base="${color.base}"
+                format="${format}"
+              ></ui-variants>
             `
         )}
       </div>
