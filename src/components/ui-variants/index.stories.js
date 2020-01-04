@@ -7,7 +7,4 @@ export default {
   title: 'UI|<ui-variants>'
 };
 
-export const baseState = () => {
-  const el = document.createElement('ui-variants');
-  return el;
-};
+export const demo = () => document.createElement('ui-variants');

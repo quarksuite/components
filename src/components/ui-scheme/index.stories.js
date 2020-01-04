@@ -7,7 +7,4 @@ export default {
   title: 'UI|<ui-scheme>'
 };
 
-export const baseState = () => {
-  const el = document.createElement('ui-scheme');
-  return el;
-};
+export const demo = () => document.createElement('ui-scheme');

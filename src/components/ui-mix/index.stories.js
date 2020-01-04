@@ -7,7 +7,4 @@ export default {
   title: 'UI|<ui-mix>'
 };
 
-export const baseState = () => {
-  const el = document.createElement('ui-mix');
-  return el;
-};
+export const demo = () => document.createElement('ui-mix');

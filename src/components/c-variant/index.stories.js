@@ -7,7 +7,4 @@ export default {
   title: 'Component|<c-variant>'
 };
 
-export const baseState = () => {
-  const el = document.createElement('c-variant');
-  return el;
-};
+export const demo = () => document.createElement('c-variant');
