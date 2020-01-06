@@ -2,11 +2,15 @@ import { html } from 'hybrids';
 import { color, typography } from '@quarksuite/core';
 import BSwatch from '../b-swatch';
 import CVariant from '../c-variant';
+import KCheckbox from '../k-checkbox';
 
-const toggleV = (host, event) => {
-  if (event.target.value === 'tints') host.tints = event.target.checked;
-  if (event.target.value === 'tones') host.tones = event.target.checked;
-  if (event.target.value === 'shades') host.shades = event.target.checked;
+const activateVariant = (host, event) => {
+  if (event.originalTarget.value === 'tints')
+    host.tints = event.originalTarget.checked;
+  if (event.originalTarget.value === 'tones')
+    host.tones = event.originalTarget.checked;
+  if (event.originalTarget.value === 'shades')
+    host.shades = event.originalTarget.checked;
 };
 
 export default {
@@ -18,25 +22,6 @@ export default {
   render: ({ base, tints, tones, shades, format }) =>
     html`
       <style>
-        fieldset {
-          border: 2px solid;
-          display: flex;
-          flex-flow: row wrap;
-          font-family: ${typography.system('sans')};
-          padding: 0.75em;
-        }
-
-        legend {
-          font-size: 1.25em;
-          font-weight: 700;
-        }
-
-        label {
-          font-size: 1.25em;
-          flex: 1;
-          text-align: center;
-        }
-
         c-variant {
           flex: 1;
           margin: 0 0.5em;
@@ -55,36 +40,16 @@ export default {
       </style>
       <b-swatch class="base" value="${base}"></b-swatch>
       <form action="">
-        <fieldset>
-          <legend>Toggle Variants</legend>
-          <label>
-            <input
-              type="checkbox"
-              name="variant"
-              value="tints"
-              onchange="${toggleV}"
-            />
-            tints</label
-          >
-          <label>
-            <input
-              type="checkbox"
-              name="variant"
-              value="tones"
-              onchange="${toggleV}"
-            />
-            tones</label
-          >
-          <label>
-            <input
-              type="checkbox"
-              name="variant"
-              value="shades"
-              onchange="${toggleV}"
-            />
-            shades</label
-          >
-        </fieldset>
+        <k-checkbox
+          name="variant"
+          legend="Choose Variants"
+          switches="${[
+            { label: 'tints', value: 'tints' },
+            { label: 'tones', value: 'tones' },
+            { label: 'shades', value: 'shades' }
+          ]}"
+          oninput="${activateVariant}"
+        ></k-checkbox>
       </form>
       <div class="variants">
         ${tints &&
@@ -110,5 +75,5 @@ export default {
             ></c-variant>
           `}
       </div>
-    `.define({ BSwatch, CVariant })
+    `.define({ BSwatch, CVariant, KCheckbox })
 };
