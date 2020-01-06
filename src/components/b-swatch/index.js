@@ -15,7 +15,7 @@ export default {
         background: ${value};
         border: 4px solid;
         border-color: ${color.palette(value, {
-          shades: { limit: 1, contrast: 75 }
+          shades: { limit: 1, contrast: 24 }
         })[0].shade};
         padding: var(--swatch-padding);
       }
@@ -29,7 +29,6 @@ export default {
         text-align: center;
       }
     </style>
-
     <div>
       <code>${value}</code>
     </div>

@@ -1,5 +1,3 @@
-import UIMix from './ui-mix';
-import UIScheme from './ui-scheme';
-import UIVariants from './ui-variants';
+import QSUIScheme from './ui-scheme';
 
-export { UIMix, UIScheme, UIVariants };
+export { QSUIScheme };

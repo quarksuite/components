@@ -1,6 +1,8 @@
 import { html } from 'hybrids';
 import { color, typography } from '@quarksuite/core';
 import BSwatch from '../b-swatch';
+import KRange from '../k-range';
+import KRadio from '../k-radio';
 
 const addToLimit = host => ++host.limit;
 const removeFromLimit = host => {
@@ -8,15 +10,14 @@ const removeFromLimit = host => {
   --host.limit;
 };
 
-const setLogBlend = (host, event) => (host.mode = event.target.value);
-const setLnBlend = (host, event) => (host.mode = event.target.value);
+const setBlend = (host, event) => (host.mode = event.originalTarget.value);
 
 export default {
   swatch: '#aaaaaa',
   type: 'tints',
   limit: 3,
   contrast: 95,
-  mode: '',
+  mode: 'logarithmic',
   format: 'hex',
   output: ({ swatch, type, limit, contrast, format, mode }) =>
     color.palette(swatch, {
@@ -26,26 +27,33 @@ export default {
   render: ({ swatch, type, limit, contrast, mode, format, output }) =>
     html`
       <style>
-        :host {
+        .controls {
+          display: flex;
+          flex-flow: row auto;
+          justify-content: space-between;
+          margin-bottom: 1.25em;
+        }
+
+        .knob {
+          flex-basis: 49%;
+        }
+
+        .category {
           display: flex;
           flex-flow: row wrap;
         }
 
-        label, fieldset {
-          display: block;
-          font-family: ${typography.system('sans')};
-          font-size: 1.25em;
-        }
-
-        fieldset {
-          border: 2px solid;
+        .palette {
           display: flex;
           flex-flow: row wrap;
-          padding: 0.5em;
+          flex: 32;
         }
 
-        legend {
-          font-weight: bold;
+        .limit-ctrl {
+          background: transparent;
+          border: none;
+          font-size: 2em;
+          flex: 1;
         }
 
         b-swatch {
@@ -53,55 +61,25 @@ export default {
           --value-size: 1em;
           flex: 1;
         }
-
-        .category, .palette {
-          display: flex;
-          flex-flow: row wrap;
-          flex: 1;
-          align-content: start;
-        }
-
-        .category {
-          min-height: 100%;
-        }
-
-        .limit-ctrl {
-          background: transparent;
-          border: none;
-          font-size: 2em;
-        }
-
-        .controls {
-          display: flex;
-          flex-basis: 100%;
-          margin: 1.5em 0;
-        }
-
-        .contrast, .mode {
-          flex-basis: 49%;
-        }
-
-        .mode label {
-          display: inline;
-          font-size: 1em;
-          flex: 1;
-          text-align: center;
-        }
-
       </style>
-      <div class="controls">
-        <div class="contrast">
-          <label for="contrast">Contrast: ${contrast}%<label>
-          <input id="contrast" type="range" value="${contrast}" min="1" oninput="${html.set(
-      'contrast'
-    )}">
-        </div>
-        <fieldset class="mode">
-          <legend>Blend Mode</legend>
-          <label><input type="radio" name="mode" value="logarithmic" onchange="${setLogBlend}" checked/> complex</label>
-          <label><input type="radio"  name="mode" value="linear" onchange="${setLnBlend}"/> basic</label>
-        </fieldset>
-      </div>
+      <form class="controls" action="">
+        <k-range
+          class="knob"
+          label="Contrast"
+          value="${contrast}"
+          oninput="${html.set('contrast')}"
+        ></k-range>
+        <k-radio
+          class="knob"
+          name="mode"
+          legend="Blend Mode"
+          choices="${[
+            { label: 'complex', value: 'logarithmic' },
+            { label: 'simple', value: 'linear' }
+          ]}"
+          oninput="${setBlend}"
+        ></k-radio>
+      </form>
       ${Object.values(output).map(
         color => html`
           <div class="category">
@@ -120,5 +98,5 @@ export default {
           </div>
         `
       )}
-    `.define({ BSwatch })
+    `.define({ BSwatch, KRange, KRadio })
 };
