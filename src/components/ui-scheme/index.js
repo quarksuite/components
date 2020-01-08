@@ -1,17 +1,15 @@
 import { html } from 'hybrids';
 import { color, typography } from '@quarksuite/core';
-import BSwatch from '../b-swatch';
-import UIVariants from '../ui-variants';
-import KColor from '../k-color';
-import KRadio from '../k-radio';
-import KRange from '../k-range';
-import KCheckbox from '../k-checkbox';
 
-const setFormat = (host, event) => (host.format = event.originalTarget.value);
-const setScheme = (host, event) => (host.type = event.originalTarget.value);
+import colorKnob from '../knobs/color';
+import rangeKnob from '../knobs/range';
+import radioKnob from '../knobs/radio';
+import checkboxKnob from '../knobs/checkbox';
 
-const toggleAccented = (host, event) =>
-  (host.accented = event.originalTarget.checked);
+const setScheme = (host, event) => (host.type = event.target.value);
+const setFormat = (host, event) => (host.format = event.target.value);
+
+const toggleAccented = (host, event) => (host.accented = event.target.checked);
 
 export default {
   base: '#348ec9',
@@ -26,67 +24,55 @@ export default {
     }),
   render: ({ base, type, distance, accented, format, output }) =>
     html`
-      <style>
-        :host {
-          --label-size: 1.5em;
-          --output-padding: 3em;
-          --output-font-size: 1.5em;
-        }
-
-        ui-variants {
-          flex: 1;
-          margin-bottom: 2em;
-        }
-      </style>
       <form action="">
-        <k-color
-          label="Base Color"
-          value="${base}"
-          oninput="${html.set('base')}"
-        ></k-color>
-        <k-radio
-          name="scheme"
-          legend="Scheme Type"
-          choices="${[
-            { label: 'monochromatic', value: 'monochromatic' },
-            { label: 'complementary', value: 'complementary' },
-            { label: 'analogous', value: 'analogous' },
-            { label: 'split', value: 'split complementary' },
-            { label: 'triadic', value: 'triadic' },
-            { label: 'dual', value: 'dual color' },
-            { label: 'tetradic', value: 'tetradic' }
-          ]}"
-          oninput="${setScheme}"
-        ></k-radio>
+        ${colorKnob('Base Color', base, html.set('base'), format)}
         <fieldset>
-          <legend>Scheme Options</legend>
+          <legend>
+            Scheme Type
+          </legend>
+          ${radioKnob(
+            'scheme-type',
+            [
+              { label: 'mono', value: 'monochromatic' },
+              { label: 'complement', value: 'complementary' },
+              { label: 'analogous', value: 'analogous' },
+              { label: 'split', value: 'split complementary' },
+              { label: 'triadic', value: 'triadic' },
+              { label: 'dual', value: 'dual color' },
+              { label: 'tetradic', value: 'tetradic' }
+            ],
+            setScheme
+          )}
+        </fieldset>
+        <fieldset>
+          <legend>Options</legend>
           <div class="options">
-            <k-range
-              label="Distance"
-              info="(analogous, split, dual) in degrees"
-              value="${distance}"
-              min="15"
-              max="45"
-              oninput="${html.set('distance')}"
-              side-label
-            ></k-range>
-            <k-checkbox
-              name="accented"
-              switches="${[{ label: 'Accented?', value: 'yes' }]}"
-              oninput="${toggleAccented}"
-            ></k-checkbox>
+            ${rangeKnob('Distance', distance, html.set('distance'), {
+              min: 15,
+              max: 45,
+              inline: true,
+              desc: '(analogous, split, dual)',
+              suffix: '°'
+            })}
+            ${checkboxKnob(
+              'option-accented',
+              [{ label: 'Accented?', value: 'accented' }],
+              toggleAccented
+            )}
           </div>
         </fieldset>
-        <k-radio
-          name="format"
-          legend="Output Format"
-          choices="${[
-            { label: 'Hex', value: 'hex' },
-            { label: 'RGB', value: 'rgb' },
-            { label: 'HSL', value: 'hsl' }
-          ]}"
-          oninput="${setFormat}"
-        ></k-radio>
+        <fieldset>
+          <legend>Output Format</legend>
+          ${radioKnob(
+            'format',
+            [
+              { label: 'Hex', value: 'hex' },
+              { label: 'RGB', value: 'rgb' },
+              { label: 'HSL', value: 'hsl' }
+            ],
+            setFormat
+          )}
+        </fieldset>
       </form>
       <div class="palette">
         ${Object.values(output).map(
@@ -99,5 +85,5 @@ export default {
             `
         )}
       </div>
-    `.define({ KColor, KRadio, KRange, BSwatch, UIVariants })
+    `
 };
