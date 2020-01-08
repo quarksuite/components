@@ -12,29 +12,44 @@
     "@pika/plugin-build-web": "^0.8.1",
     "@pika/plugin-copy-assets": "^0.8.1",
     "@pika/plugin-standard-pkg": "^0.8.1",
+    "@quarksuite/tokens": "https://github.com/quarksuite/ui-tokens.git",
     "@storybook/addon-knobs": "^5.2.6",
     "@storybook/html": "^5.2.6",
     "babel-loader": "^8.0.6",
-    "postcss": "^7.0.23",
+    "postcss": "^7.0.26",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "raw-loader": "^4.0.0"
   },
   "scripts": {
-    "storybook": "start-storybook",
+    "storybook": "start-storybook -p 1360 --ci",
     "build": "pika build"
   },
   "dependencies": {
     "@quarksuite/core": "^2.0.2",
     "@webcomponents/webcomponentsjs": "^2.4.0",
-    "hybrids": "^4.0.3"
+    "hybrids": "^4.0.3",
+    "postcss-import": "^12.0.1"
   },
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-standard-pkg", { "exclude": [ "tests/**/*" ] }],
-      ["@pika/plugin-copy-assets"],
-      ["@pika/plugin-build-node"],
-      ["@pika/plugin-build-web"]
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "tests/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-copy-assets"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
     ]
   }
 }
