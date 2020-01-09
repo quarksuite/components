@@ -1,8 +1,7 @@
 import { html } from 'hybrids';
-import { color, typography } from '@quarksuite/core';
-import tokens from '@quarksuite/tokens';
+import { color } from '@quarksuite/core';
 
-import base from '../shared/base.css';
+import baseStyles from '../shared/base.pcss';
 
 export default {
   value: '#aaaaaa',
@@ -10,11 +9,11 @@ export default {
     html`
       <style>
         :host {
-          --border-width: ${tokens.ms.inline['3x'].value};
-          --swatch-padding: ${tokens.ms.block['3x'].value};
-          --value-font: ${tokens.font.system.mono.value};
+          --border-width: var(--ms-inline-4-x);
+          --swatch-padding: var(--ms-block-2-x);
+          --value-font: var(--font-system-mono);
           --value-padding: calc(var(--swatch-padding) / 2);
-          --value-size: ${tokens.ms.block['2x'].value};
+          --value-size: var(--ms-block-base);
         }
 
         div {
@@ -38,5 +37,5 @@ export default {
       <div>
         <code>${value}</code>
       </div>
-    `.style(base)
+    `.style(baseStyles)
 };

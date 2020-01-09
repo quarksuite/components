@@ -7,18 +7,28 @@ export default (label, value, handler, format = 'hex') => {
     .split(' ')
     .join('-');
   return html`
-    <label for="${id}">${label}</label>
-    <div class="color-knob">
+    <style>
+      .color > label {
+        display: block;
+        margin-bottom: var(--ms-inline-base);
+      }
+
+      input[type='color'] {
+        background: transparent;
+        border: none;
+        padding: 0;
+        display: block;
+        width: 100%;
+        height: var(--ms-block-7-x);
+      }
+    </style>
+    <div class="color">
+      <label for="${id}">${label}</label>
       <input
         id="${id}"
         name="${id}"
         type="color"
         value="${color.format(value, 'hex')}"
-        oninput="${handler}"
-      />
-      <input
-        name="${id}"
-        value="${color.format(value, format)}"
         oninput="${handler}"
       />
     </div>

@@ -10,5 +10,4 @@ Initial release.
 
 ### Added
 
-+ Color components (`<qs-swatch>`, `<qs-scheme>`, `<qs-variants>`)
-+ OS Font stack component (`<qs-typography>`)
++ Palette creation UI (`<ui-custom>`, `<ui-scheme>`)

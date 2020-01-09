@@ -13,7 +13,7 @@ export default (
 
   return inline
     ? html`
-        <label
+        <label class="range"
           ><input
             type="range"
             value="${value}"
@@ -25,14 +25,16 @@ export default (
         >
       `
     : html`
-        <label for="${id}">${label}: ${value}${suffix}</label>
-        <input
-          id="${id}"
-          type="range"
-          value="${value}"
-          min="${min}"
-          max="${max}"
-          oninput="${handler}"
-        />
+        <div class="range">
+          <label for="${id}">${label}: ${value}${suffix}</label>
+          <input
+            id="${id}"
+            type="range"
+            value="${value}"
+            min="${min}"
+            max="${max}"
+            oninput="${handler}"
+          />
+        </div>
       `;
 };

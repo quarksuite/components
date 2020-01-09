@@ -6,7 +6,7 @@ export default (name, choices, handler) =>
 
     return index === 0
       ? html`
-          <label
+          <label class="radio"
             ><input
               type="radio"
               name="${name}"
@@ -18,7 +18,7 @@ export default (name, choices, handler) =>
           </label>
         `
       : html`
-          <label
+          <label class="radio"
             ><input
               type="radio"
               name="${name}"

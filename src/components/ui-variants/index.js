@@ -3,6 +3,9 @@ import { color, typography } from '@quarksuite/core';
 
 import checkboxKnob from '../knobs/checkbox';
 
+import baseStyles from '../shared/base.pcss';
+import formStyles from '../shared/form.pcss';
+
 const activateVariant = (host, event) => {
   if (event.target.value === 'tints') host.tints = event.target.checked;
   if (event.target.value === 'tones') host.tones = event.target.checked;
@@ -17,7 +20,11 @@ export default {
   format: 'hex',
   render: ({ base, tints, tones, shades, format }) =>
     html`
-      <b-swatch class="base" value="${base}"></b-swatch>
+      <style>
+        b-swatch {
+          margin-bottom: var(--ms-block-base);
+        }
+      </style>
       <form action="">
         <fieldset>
           <legend>Variants</legend>
@@ -32,6 +39,7 @@ export default {
           )}
         </fieldset>
       </form>
+      <b-swatch class="base" value="${base}"></b-swatch>
       <div class="variants">
         ${tints &&
           html`
@@ -56,5 +64,5 @@ export default {
             ></c-variant>
           `}
       </div>
-    `
+    `.style(baseStyles, formStyles)
 };

@@ -1,7 +1,10 @@
 import { html } from 'hybrids';
-import { color, typography } from '@quarksuite/core';
+import { color } from '@quarksuite/core';
 import rangeKnob from '../knobs/range';
 import radioKnob from '../knobs/radio';
+
+import baseStyles from '../shared/base.pcss';
+import formStyles from '../shared/form.pcss';
 
 const addToLimit = host => ++host.limit;
 const removeFromLimit = host => {
@@ -57,5 +60,5 @@ export default {
           </div>
         `
       )}
-    `
+    `.style(baseStyles, formStyles)
 };

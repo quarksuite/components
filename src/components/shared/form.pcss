@@ -1,0 +1,39 @@
+:host {
+  --form-flow: column wrap;
+  --form-font: var(--font-system-sans);
+
+  --fieldset-bg: var(--color-primary-tint-300);
+  --fieldset-border-width: var(--ms-inline-base);
+  --fieldset-border-style: solid;
+  --fieldset-border-color: var(--color-primary-base);
+  --fieldset-border: var(--fieldset-border-width) var(--fieldset-border-style)
+    var(--fieldset-border-color);
+
+  --label-font-size: var(--ms-block-base);
+}
+
+form {
+  display: flex;
+  flex-flow: var(--form-flow);
+  font-family: var(--form-font);
+  margin-bottom: var(--ms-block-2-x);
+}
+
+label,
+legend {
+  font-size: var(--label-font-size);
+  font-weight: 700;
+}
+
+fieldset {
+  background: var(--fieldset-bg);
+  border: var(--fieldset-border);
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+}
+
+fieldset > label,
+label > small {
+  font-weight: 400;
+}

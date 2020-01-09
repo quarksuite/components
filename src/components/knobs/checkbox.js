@@ -4,7 +4,7 @@ export default (name, switches, handler) =>
   Object.values(switches).map(toggle => {
     const { label, value } = toggle;
     return html`
-      <label
+      <label class="checkbox"
         ><input
           type="checkbox"
           name="${name}"
