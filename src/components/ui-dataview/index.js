@@ -2,7 +2,6 @@ import { html } from 'hybrids';
 import { color } from '@quarksuite/core';
 
 import prism from 'prismjs';
-import prismTheme from './code.pcss';
 
 import hostInit from '../shared/host';
 
@@ -40,8 +39,18 @@ export default {
           border: var(--ms-inline-base) solid var(--color-primary-base);
           padding: var(--ms-inline-4-x);
         }
+
+        /* prism theme */
+        .token.keyword {
+          color: var(--color-primary-base);
+          font-weight: 700;
+        }
+
+        .token.string {
+          color: var(--color-secondary-base);
+        }
       </style>
       <div class="filename"><code>${filename}</code></div>
       <pre class="output-code"><code innerHTML="${output}"></code></pre>
-    `.style(prismTheme)
+    `
 };
