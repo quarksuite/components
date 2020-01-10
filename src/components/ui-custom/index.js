@@ -1,11 +1,13 @@
-import { html, property } from 'hybrids';
+import { html } from 'hybrids';
 import { color } from '@quarksuite/core';
+
+import UIVariants from '../ui-variants';
+
+import hostInit from '../shared/host';
+import formStyle from '../shared/form';
 
 import colorKnob from '../knobs/color';
 import buttonKnob from '../knobs/button';
-
-import baseStyles from '../shared/base.pcss';
-import formStyles from '../shared/form.pcss';
 
 const addSwatch = (host, event) => {
   event.preventDefault();
@@ -21,66 +23,62 @@ const removeSwatch = (host, event) => {
   event.preventDefault();
 
   host.palette = host.palette.filter(swatch => swatch !== event.target.value);
-
-  console.log(host.palette);
 };
 
 export default {
   palette: [],
   currentValue: '#f00000',
-  output: ({ palette }) => {
-    return palette;
-  },
-  render: ({ palette, currentValue, output }) =>
+  render: ({ palette, currentValue }) =>
     html`
+      ${hostInit} ${formStyle}
       <style>
-        .color,
-        .input {
-          flex: 1;
-        }
-
         .color {
-          margin-bottom: var(--ms-block-base);
+          margin: var(--field-margins);
         }
 
         .button {
-          background: var(--color-primary-tint-300);
-          border: calc(var(--ms-inline-base) / 2) solid
-            var(--color-secondary-base);
-          border-radius: var(--ms-inline-4-x);
-          font-size: var(--ms-block-3-x);
-          padding: var(--ms-block-base);
+          background: var(--button-main-bg);
+          border-radius: 0.25em;
+          border: 4px solid var(--button-main-border-color);
+          font-size: var(--button-main-font-size);
+          padding: var(--button-main-padding);
+        }
+
+        .palette {
+          display: flex;
+          flex-flow: row wrap;
         }
 
         .swatch {
           position: relative;
+          flex: 1;
         }
 
         .button.remove {
+          border-radius: 0 0 0 0.5em;
           position: absolute;
           right: 0;
-          border-color: var(--color-tertiary-base);
-          border-radius: var(--ms-inline-base);
-          font-size: calc(var(--ms-block-3-x) / 2);
-          padding: calc(var(--ms-inline-base));
-        }
-
-        ui-variants {
-          margin-bottom: var(--ms-block-4-x);
+          background: rgba(255, 255, 255, 0.8);
+          border: none;
+          font-size: 1em;
+          padding: 0.25em;
+          width: 1.5em;
         }
       </style>
       <form action="">
         ${colorKnob('Color', currentValue, html.set('currentValue'))}
         ${buttonKnob('Add to Palette', addSwatch)}
       </form>
-      ${palette.map(
-        swatch =>
-          html`
-            <div class="swatch">
-              ${buttonKnob('x', removeSwatch, swatch, 'remove')}
-              <ui-variants base="${swatch}" format="hex"></ui-variants>
-            </div>
-          `
-      )}
-    `.style(baseStyles, formStyles)
+      <div class="palette">
+        ${palette.map(
+          swatch =>
+            html`
+              <div class="swatch">
+                ${buttonKnob('x', removeSwatch, swatch, 'remove')}
+                <ui-variants base="${swatch}"></ui-variants>
+              </div>
+            `
+        )}
+      </div>
+    `.define({ UIVariants })
 };

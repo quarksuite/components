@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-primary-tint-300);
+  color: var(--color-primary-shade-200);
+  font-family: var(--font-system-sans);
+  margin: 0.5em;
+}

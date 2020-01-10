@@ -1,13 +1,13 @@
 import { html } from 'hybrids';
-import { color, typography } from '@quarksuite/core';
+import { color } from '@quarksuite/core';
 
 import colorKnob from '../knobs/color';
 import rangeKnob from '../knobs/range';
 import radioKnob from '../knobs/radio';
 import checkboxKnob from '../knobs/checkbox';
 
-import baseStyles from '../shared/base.pcss';
-import formStyles from '../shared/form.pcss';
+import hostInit from '../shared/host';
+import formStyles from '../shared/form';
 
 const setScheme = (host, event) => (host.type = event.target.value);
 const setFormat = (host, event) => (host.format = event.target.value);
@@ -27,6 +27,7 @@ export default {
     }),
   render: ({ base, type, distance, accented, format, output }) =>
     html`
+      ${hostInit} ${formStyles}
       <form action="">
         ${colorKnob('Base Color', base, html.set('base'), format)}
         <fieldset>
@@ -88,5 +89,5 @@ export default {
             `
         )}
       </div>
-    `.style(baseStyles, formStyles)
+    `
 };

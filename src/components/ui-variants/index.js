@@ -1,10 +1,13 @@
 import { html } from 'hybrids';
-import { color, typography } from '@quarksuite/core';
+import { color } from '@quarksuite/core';
+
+import BSwatch from '../b-swatch';
+import CVariant from '../c-variant';
+
+import hostInit from '../shared/host';
+import formStyles from '../shared/form';
 
 import checkboxKnob from '../knobs/checkbox';
-
-import baseStyles from '../shared/base.pcss';
-import formStyles from '../shared/form.pcss';
 
 const activateVariant = (host, event) => {
   if (event.target.value === 'tints') host.tints = event.target.checked;
@@ -20,11 +23,24 @@ export default {
   format: 'hex',
   render: ({ base, tints, tones, shades, format }) =>
     html`
+      ${hostInit} ${formStyles}
       <style>
         b-swatch {
+          margin-bottom: calc(var(--ms-block-base) / 2);
+        }
+
+        c-variant {
+          flex-grow: 1;
+          flex-basis: 50%;
           margin-bottom: var(--ms-block-base);
         }
+
+        .variants {
+          display: flex;
+          flex-flow: row wrap;
+        }
       </style>
+      <b-swatch class="base" value="${base}"></b-swatch>
       <form action="">
         <fieldset>
           <legend>Variants</legend>
@@ -39,7 +55,6 @@ export default {
           )}
         </fieldset>
       </form>
-      <b-swatch class="base" value="${base}"></b-swatch>
       <div class="variants">
         ${tints &&
           html`
@@ -64,5 +79,5 @@ export default {
             ></c-variant>
           `}
       </div>
-    `.style(baseStyles, formStyles)
+    `.define({ BSwatch, CVariant })
 };

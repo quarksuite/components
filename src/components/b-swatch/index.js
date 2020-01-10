@@ -1,12 +1,13 @@
 import { html } from 'hybrids';
 import { color } from '@quarksuite/core';
 
-import baseStyles from '../shared/base.pcss';
+import hostInit from '../shared/host';
 
 export default {
   value: '#aaaaaa',
   render: ({ value }) =>
     html`
+      ${hostInit}
       <style>
         :host {
           --border-width: var(--ms-inline-4-x);
@@ -37,5 +38,5 @@ export default {
       <div>
         <code>${value}</code>
       </div>
-    `.style(baseStyles)
+    `
 };

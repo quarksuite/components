@@ -3,8 +3,8 @@ import { color } from '@quarksuite/core';
 import rangeKnob from '../knobs/range';
 import radioKnob from '../knobs/radio';
 
-import baseStyles from '../shared/base.pcss';
-import formStyles from '../shared/form.pcss';
+import hostInit from '../shared/host';
+import formStyles from '../shared/form';
 
 const addToLimit = host => ++host.limit;
 const removeFromLimit = host => {
@@ -28,6 +28,42 @@ export default {
     }),
   render: ({ swatch, type, limit, contrast, mode, format, output }) =>
     html`
+      ${hostInit} ${formStyles}
+      <style>
+        :host {
+          --field-margins: calc(var(--ms-block-base) / 3);
+        }
+
+        b-swatch {
+          --border-width: var(--ms-inline-base);
+          --swatch-padding: var(--ms-block-base);
+          --value-size: calc(var(--ms-block-base) / 1.2);
+        }
+        .range {
+          margin-bottom: var(--field-margins);
+        }
+
+        .category,
+        .palette {
+          display: flex;
+          flex-flow: row wrap;
+        }
+
+        .palette {
+          flex: 64;
+        }
+
+        .variant {
+          flex: 1;
+        }
+
+        .limit-ctrl {
+          background: transparent;
+          border: none;
+          flex-grow: 1;
+          font-size: var(--ms-block-3-x);
+        }
+      </style>
       <form action="">
         ${rangeKnob('Contrast', contrast, html.set('contrast'))} ${radioKnob}
         <fieldset>
@@ -60,5 +96,5 @@ export default {
           </div>
         `
       )}
-    `.style(baseStyles, formStyles)
+    `
 };
