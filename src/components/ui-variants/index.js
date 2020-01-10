@@ -25,6 +25,16 @@ export default {
     html`
       ${hostInit} ${formStyles}
       <style>
+        fieldset {
+          display: flex;
+          flex-flow: row wrap;
+        }
+
+        .checkbox {
+          flex-grow: 1;
+          text-align: center;
+        }
+
         b-swatch {
           margin-bottom: calc(var(--ms-block-base) / 2);
         }
