@@ -8,3 +8,11 @@ body {
   font-family: var(--font-system-sans);
   margin: 0.5em;
 }
+
+h1 {
+  font-family: var(--font-system-serif);
+}
+
+h2 {
+  font-family: var(--font-system-mono);
+}
