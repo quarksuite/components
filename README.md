@@ -10,7 +10,7 @@ The skeleton for an interface that allows custom palette creation.
 
 #### Demo
 
-![qsui-custom demo](/home/cr-jr/Code/project/@quarksuite/components/assets/ui-custom-demo.gif)
+![qsui-custom demo](screenshots/ui-custom-demo.gif)
 
 ### \<qsui-dataview>
 
@@ -28,7 +28,7 @@ The skeleton for an interface that allows a color mixture.
 
 #### Demo
 
-![qsui-mix demo](/home/cr-jr/Code/project/@quarksuite/components/assets/ui-mix-demo.gif)
+![qsui-mix demo](screenshots/ui-mix-demo.gif)
 
 ### \<qsui-scheme>
 
@@ -36,4 +36,4 @@ The skeleton for an interface that allows basic color scheme creation.
 
 #### Demo
 
-![qsui-scheme demo](/home/cr-jr/Code/project/@quarksuite/components/assets/ui-scheme-demo.gif)
+![qsui-scheme demo](screenshots/ui-scheme-demo.gif)
