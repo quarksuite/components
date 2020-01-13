@@ -10,4 +10,6 @@ Initial release.
 
 ### Added
 
-+ Palette creation UI (`<ui-custom>`, `<ui-scheme>`)
++ Palette creation UI (`<qsui-custom>`, `<qsui-scheme>`, `<qsui-mix>`)
+
++ Data component (`<qsui-dataview>`)

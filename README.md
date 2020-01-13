@@ -1,37 +1,39 @@
 # Quarksuite (Components)
 
-This package contains and documents components for building an upcoming GUI. The plan is to use [Neutralino.js](https://neutralino.js.org) and keep it as small and light as possible.
+This package contains and documents components for building an upcoming GUI. The plan is to use [Neutralino.js](https://neutralino.js.org) and keep it as small and light as possible. The component demos may not match the current design later. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
 
 ## Components (as of v0.1.0)
 
-### \<qs-swatch\>
+### \<qsui-custom>
 
-This component is responsible for both defining and displaying color swatches.
+The skeleton for an interface that allows custom palette creation.
+
+#### Demo
+
+![qsui-custom demo](/home/cr-jr/Code/project/@quarksuite/components/assets/ui-custom-demo.gif)
+
+### \<qsui-dataview>
+
+A display component that accepts Quarksuite data and formats the output.
 
 #### Properties
 
-+ `value`: a valid CSS color to display
-+ `target` (optional): a color to blend with `value`
-+ `amount`: percentage as an integer to blend `value` and `target` (`50` by default)
++ `data: Object = {}`: The data to format
++ `variable: String = 'output'`: The variable to use for the output
++ `filename: String = 'system.js'`: The filename to label the output 
 
-#### Usage
+### \<qsui-mix>
 
-##### Element
+The skeleton for an interface that allows a color mixture.
 
-```html
-<!-- all defaults -->
-<qs-swatch></qs-swatch>
+#### Demo
 
-<!-- value -->
-<qs-swatch value="#348ec9"></qs-swatch>
+![qsui-mix demo](/home/cr-jr/Code/project/@quarksuite/components/assets/ui-mix-demo.gif)
 
-<!-- target -->
-<qs-swatch value="#348ec9" target="goldenrod"></qs-swatch>
+### \<qsui-scheme>
 
-<!-- amount -->
-<qs-swatch value="#348ec9" target="#ccea00" amount=20></qs-swatch>
-```
+The skeleton for an interface that allows basic color scheme creation.
 
-### \<qs-scheme\>
+#### Demo
 
-Outputs a color scheme
+![qsui-scheme demo](/home/cr-jr/Code/project/@quarksuite/components/assets/ui-scheme-demo.gif)

@@ -58,9 +58,10 @@ export default {
           border-radius: 0 0 0 0.5em;
           position: absolute;
           right: 0;
-          background: rgba(255, 255, 255, 0.8);
+          background: var(--color-primary-tint-300);
           border: none;
           font-size: 1em;
+          opacity: 0.8;
           padding: 0.25em;
           width: 1.5em;
         }

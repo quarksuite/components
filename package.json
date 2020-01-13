@@ -25,6 +25,7 @@
   "scripts": {
     "storybook": "start-storybook -p 1360 --ci",
     "dev": "parcel serve src/index.html --out-dir staging",
+    "staging": "parcel build src/index.html --out-dir www",
     "build": "microbundle"
   },
   "dependencies": {
