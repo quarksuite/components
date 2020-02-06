@@ -10,7 +10,6 @@ export default {
       ${hostInit}
       <style>
         :host {
-          --border: none;
           --color: var(--color-primary-base);
         }
 
@@ -22,7 +21,6 @@ export default {
 
         .element > div {
           background: var(--color);
-          border: var(--border);
           margin-bottom: var(--ms-inline-base);
           width: 100%;
           height: ${value};

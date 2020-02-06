@@ -1,6 +1,6 @@
 import { html } from 'hybrids';
 
-export default (label, value, handler, { min = 1, step = 0.025 } = {}) => {
+export default (label, value, handler, { min = 1, step = 0.001 } = {}) => {
   const id = label
     .toLowerCase()
     .split(' ')
