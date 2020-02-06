@@ -9,8 +9,14 @@ body {
   margin: 0.5em;
 }
 
+section {
+  border: 8px solid var(--color-primary-base);
+  margin-bottom: 2em;
+  padding: 2em;
+}
+
 h1 {
-  font-family: var(--font-system-serif);
+  font-family: var(--font-system-sans);
 }
 
 h2 {
