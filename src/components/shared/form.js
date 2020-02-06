@@ -32,6 +32,7 @@ export default html`
     form {
       display: flex;
       flex-flow: var(--form-flow);
+      font-family: var(--form-font);
       margin: var(--form-margins);
     }
 
