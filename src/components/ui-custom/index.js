@@ -28,7 +28,8 @@ const removeSwatch = (host, event) => {
 export default {
   palette: [],
   currentValue: '#f00000',
-  render: ({ palette, currentValue }) =>
+  output: ({ palette }) => palette,
+  render: ({ palette, currentValue, output }) =>
     html`
       ${hostInit} ${formStyle}
       <style>
@@ -71,7 +72,7 @@ export default {
         ${buttonKnob('Add to Palette', addSwatch)}
       </form>
       <div class="palette">
-        ${palette.map(
+        ${output.map(
           swatch =>
             html`
               <div class="swatch">
