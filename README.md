@@ -1,6 +1,6 @@
 # Quarksuite (Components)
 
-This package contains and documents components for building an upcoming GUI. The plan is to use [Neutralino.js](https://neutralino.js.org) and keep it as small and light as possible. The component demos may not match the current design later. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
+This package contains and documents components for building an upcoming GUI. The plan is to use [Electron](https://www.electronjs.org/) and keep it as small and light as possible. The component demos may not match the current design later. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
 
 ## Components (as of v0.2.0)
 
