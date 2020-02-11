@@ -10,7 +10,6 @@
   "umd:main": "dist/qsui.umd.js",
   "devDependencies": {
     "@babel/core": "^7.7.4",
-    "@quarksuite/tokens": "https://github.com/quarksuite/ui-tokens.git",
     "@storybook/addon-knobs": "^5.2.6",
     "@storybook/html": "^5.2.6",
     "babel-loader": "^8.0.6",
@@ -29,7 +28,6 @@
     "build": "microbundle"
   },
   "dependencies": {
-    "@quarksuite/core": "^2.0.2",
     "@webcomponents/webcomponentsjs": "^2.4.1",
     "hybrids": "^4.0.3",
     "prismjs": "^1.18.0"

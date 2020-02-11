@@ -1,5 +1,4 @@
 import { html } from 'hybrids';
-import { color } from '@quarksuite/core';
 
 import hostInit from '../shared/host';
 
@@ -10,24 +9,27 @@ export default {
       ${hostInit}
       <style>
         :host {
-          --border-width: var(--ms-inline-4-x);
-          --swatch-padding: var(--ms-block-2-x);
-          --value-font: var(--font-system-mono);
+          --border-color: black;
+          --border-width: 4px;
+          --border-radius: 0;
+
+          --swatch-padding: 1.5em;
+
+          --value-font: monospace;
           --value-padding: calc(var(--swatch-padding) / 2);
-          --value-size: var(--ms-block-base);
+          --value-size: 1rem;
         }
 
         div {
           background: ${value};
-          border: var(--border-width) solid;
-          border-color: ${color.palette(value, {
-            shades: { limit: 1, contrast: 24 }
-          })[0].shade};
+          border: var(--border-width) solid var(--border-color);
+          border-radius: var(--border-radius);
           padding: var(--swatch-padding);
         }
 
         code {
           background: rgba(255, 255, 255, 0.8);
+          border-radius: calc(var(--border-radius) / 2);
           display: block;
           font-family: var(--value-font);
           font-size: var(--value-size);

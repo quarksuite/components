@@ -1,47 +1,52 @@
 import { html } from 'hybrids';
-import { typography } from '@quarksuite/core';
 
 import hostInit from '../shared/host';
 
 export default {
-  id: 'sans',
-  render: ({ id }) => html`
+  name: 'Sans',
+  stack: 'sans-serif',
+  render: ({ name, stack }) => html`
     ${hostInit}
     <style>
       :host {
-        --sample-size: var(--ms-block-2-x);
-      }
-      .stack {
-        font-family: var(--font-system-sans);
-        font-size: var(--ms-block-base);
+        --label-bg: black;
+        --label-fg: white;
+        --label-padding: 1em;
+        --label-size: 1.25em;
+        --label-font: sans-serif;
+
+        --value-font: monospace;
+        --value-opacity: 0.8;
+
+        --content-border: 4px solid black;
+        --content-padding: calc(var(--label-padding) / 1.5);
+        --content-size: calc(var(--label-size) * 1.25);
       }
 
-      .stack > span {
-        background: var(--color-primary-base);
-        color: var(--color-primary-tint-300);
-        display: block;
-        padding: var(--ms-inline-4-x);
+      .label {
+        background: var(--label-bg);
+        color: var(--label-fg);
+        padding: var(--label-padding);
+        font-family: var(--label-font);
+        font-size: var(--label-size);
         font-weight: 700;
       }
 
-      .stack > span code {
-        color: var(--color-primary-tint-200);
+      .label > code {
+        opacity: var(--value-opacity);
+        font-family: var(--value-font);
         font-weight: 400;
       }
 
-      .stack > div {
-        border: var(--ms-inline-2-x) solid var(--color-primary-base);
-        padding: var(--ms-block-base);
-        font-family: ${typography.system(id)};
-        font-size: var(--sample-size);
+      .content {
+        border: var(--content-border);
+        padding: var(--content-padding);
+        font-size: var(--content-size);
       }
     </style>
     <div class="stack">
-      <span
-        >System ${[id[0].toUpperCase(), id.slice(1, id.length)].join('')}:
-        <code>${typography.system(id)}</code></span
-      >
-      <div>The quick brown fox jumps over the lazy dog.</div>
+      <div class="label">${name}: <code>${stack}</code></div>
+      <div class="content">The quick brown fox jumps over the lazy dog.</div>
     </div>
   `
 };

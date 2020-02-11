@@ -10,24 +10,38 @@ export default {
     html`
       ${hostInit}
       <style>
+        :host {
+          --bg: black;
+          --color: white;
+
+          --label-font: sans-serif;
+          --label-size: 1.25em;
+          --label-padding: 1em;
+
+          --value-font: monospace;
+          --value-opacity: 0.8;
+
+          --content-border: 4px solid black;
+          --content-padding: var(--label-padding);
+        }
         .label {
-          background: var(--color-primary-base);
-          color: var(--color-primary-tint-300);
+          background: var(--bg);
+          color: var(--color);
           display: inline-block;
-          font-family: var(--font-system-sans);
-          font-size: var(--ms-block-2-x);
-          padding: var(--ms-block-base);
+          font-family: var(--label-font);
+          font-size: var(--label-size);
+          padding: var(--label-padding);
         }
 
         .label > code {
-          color: var(--color-primary-tint-200);
-          font-family: var(--font-system-mono);
+          opacity: var(--value-opacity);
+          font-family: var(--value-font);
         }
 
         .content {
-          border: 4px solid var(--color-primary-base);
-          background: var(--color-primary-tint-300);
-          padding: var(--ms-block-base);
+          border: var(--content-border);
+          background: var(--color);
+          padding: var(--content-padding);
           font-family: var(--font-system-serif);
           font-size: ${value};
         }

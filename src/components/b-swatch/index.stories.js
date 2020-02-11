@@ -7,4 +7,4 @@ export default {
   title: 'Color|Bricks/<b-swatch>'
 };
 
-export const demo = () => document.createElement('b-swatch');
+export const Demo = () => document.createElement('b-swatch');

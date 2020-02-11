@@ -10,6 +10,7 @@ export default {
   max: 100,
   render: ({ value, id, handler, min, max }) =>
     html`
+      ${hostInit}
       <input
         id="${id}"
         type="range"

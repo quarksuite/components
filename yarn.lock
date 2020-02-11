@@ -976,17 +976,6 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
-"@quarksuite/core@^2.0.0", "@quarksuite/core@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@quarksuite/core/-/core-2.0.2.tgz#2ec018b50c469e171bc3622e8e7f858358ec5f4c"
-  integrity sha512-0MjjcjIFj/fbm7w1bCpqUbKbE+Tf7yuPrtBnsopm5vEJcVcLT2mNS78VW1Ji/pZ+NIEuLUQdzYekXvh0t3YvmQ==
-
-"@quarksuite/tokens@https://github.com/quarksuite/ui-tokens.git":
-  version "1.2.1"
-  resolved "https://github.com/quarksuite/ui-tokens.git#18d3d1d773e4659561337513bef9ba7b1d710077"
-  dependencies:
-    "@quarksuite/core" "^2.0.0"
-
 "@reach/router@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"

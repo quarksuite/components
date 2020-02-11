@@ -4,6 +4,7 @@ import Controls from './';
 import Checkbox from '../b-checkbox';
 import Radio from '../b-radio';
 
+import Button from '../b-button';
 import Color from '../b-color';
 import Num from '../b-number';
 import Range from '../b-range';
@@ -14,6 +15,7 @@ define('c-controls', Controls);
 define('b-checkbox', Checkbox);
 define('b-radio', Radio);
 
+define('b-button', Button);
 define('b-color', Color);
 define('b-number', Num);
 define('b-range', Range);
@@ -40,6 +42,9 @@ export const CanNestFieldsets = () => {
 export const CanNestInputs = () => {
   return `
     <c-form>
+    <div>
+    <b-button></b-button>
+    </div>
       <div>
         <label for="color">Color</label>
         <b-color id="color"></b-color>
