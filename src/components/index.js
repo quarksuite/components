@@ -1,3 +1,4 @@
+import QSBData from './b-data';
 import QSBElement from './b-element';
 import QSBFont from './b-font';
 import QSBScale from './b-scale';
@@ -14,6 +15,12 @@ import QSKRange from './b-range';
 import QSKText from './b-text';
 
 export {
+  // Bricks
+  QSBData,
+  QSBElement,
+  QSBFont,
+  QSBScale,
+  QSBSwatch,
   // Components
   QSCForm,
   // Knobs
