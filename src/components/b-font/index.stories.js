@@ -4,7 +4,7 @@ import Font from './';
 define('b-font', Font);
 
 export default {
-  title: 'Bricks|<b-font>'
+  title: 'Content|Bricks/<b-font>'
 };
 
 export const demo = () => document.createElement('b-font');
