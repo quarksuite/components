@@ -1,7 +1,22 @@
-import QSData from './b-data';
-import QSElement from './b-element';
-import QSFont from './b-font';
-import QSScale from './b-scale';
-import QSSwatch from './b-swatch';
+// Control Elements
+import QSControls from './controls';
+import QSFieldset from './fieldset';
+import QSField from './field';
 
-export { QSData, QSElement, QSFont, QSScale, QSSwatch };
+// Display Elements
+import QSData from './data';
+import QSElement from './element';
+import QSFont from './font';
+import QSScale from './scale';
+import QSSwatch from './swatch';
+
+export {
+  QSControls,
+  QSFieldset,
+  QSField,
+  QSData,
+  QSElement,
+  QSFont,
+  QSScale,
+  QSSwatch
+};

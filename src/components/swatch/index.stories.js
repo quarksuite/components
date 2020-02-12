@@ -1,10 +1,10 @@
 import { define } from 'hybrids';
 import Swatch from './';
 
-define('b-swatch', Swatch);
+define('qs-swatch', Swatch);
 
 export default {
-  title: 'Color|Bricks/<b-swatch>'
+  title: 'Display|Color/<qs-swatch>'
 };
 
-export const Demo = () => document.createElement('b-swatch');
+export const Demo = () => document.createElement('qs-swatch');

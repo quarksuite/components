@@ -1,10 +1,10 @@
 import { define } from 'hybrids';
 import Scale from './';
 
-define('b-scale', Scale);
+define('qs-scale', Scale);
 
 export default {
-  title: 'Content|Bricks/<b-scale>'
+  title: 'Display|Content/<qs-scale>'
 };
 
-export const demo = () => document.createElement('b-scale');
+export const demo = () => document.createElement('qs-scale');

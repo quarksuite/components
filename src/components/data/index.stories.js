@@ -1,10 +1,10 @@
 import { define } from 'hybrids';
 import Data from './';
 
-define('b-data', Data);
+define('qs-data', Data);
 
 export default {
-  title: 'Data|Bricks/<b-data>'
+  title: 'Display|Data/<qs-data>'
 };
 
-export const Demo = () => document.createElement('b-data');
+export const Demo = () => document.createElement('qs-data');

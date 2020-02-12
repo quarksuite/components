@@ -1,10 +1,10 @@
 import { define } from 'hybrids';
 import Font from './';
 
-define('b-font', Font);
+define('qs-font', Font);
 
 export default {
-  title: 'Content|Bricks/<b-font>'
+  title: 'Display|Content/<qs-font>'
 };
 
-export const demo = () => document.createElement('b-font');
+export const demo = () => document.createElement('qs-font');

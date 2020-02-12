@@ -1,10 +1,10 @@
 import { define } from 'hybrids';
 import Element from './';
 
-define('b-element', Element);
+define('qs-element', Element);
 
 export default {
-  title: 'Proportion|Bricks/<b-element>'
+  title: 'Display|Proportion/<qs-element>'
 };
 
-export const demo = () => document.createElement('b-element');
+export const demo = () => document.createElement('qs-element');
