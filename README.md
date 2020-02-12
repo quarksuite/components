@@ -4,7 +4,7 @@ This repo contains and documents components for building the Quarksuite desktop 
 
 ## Components (as of v1.0.0)
 
-Components in v1 are categorized by controls and display. Control components set simple layout rules for form and input UI. Display components aid in processing and viewing data.
+Components in v1 are categorized by controls and display. Control components set simple layout rules for forms and input UI. Display components aid in processing and viewing data.
 
 ### Control Components
 
@@ -15,7 +15,7 @@ A control component for formatting UI fields.
 ##### Properties
 
 + `label: String = 'Read the label'`: Sets the internal label
-+ `labelPos: String = ''`: Positions the label (accepted values: `top`, `right`, `bottom`, `left`)
++ `labelPos: String = 'top'`: Positions the label (accepted values: `top`, `right`, `bottom`, `left`)
 + `id: String = 'id'`: Set the label id
 
 ##### Theme Options
@@ -37,7 +37,7 @@ qs-field {
 
 ```html
 <qs-field label="Content" id="content">
-	<input type="text" />
+  <input type="text" />
 </qs-field>
 ```
 
@@ -182,7 +182,7 @@ A display component for spacing and proportion scales.
 
 ##### Properties
 
-+ `label: String = base`: The label to set for the element
++ `label: String = 'base'`: The label to set for the element
 + `value: String = '1rem'`: The value to set for the element
 
 ##### Theme Options
