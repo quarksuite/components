@@ -10,14 +10,16 @@ export default {
     ${hostInit}
     <style>
       :host {
-        --border: 4px solid black;
-        --font: sans-serif;
+        --field-font: sans-serif;
         --label-weight: 700;
 
+        --input-border: 4px solid black;
         --input-radius: 0.5em;
         --input-padding: 0.75em;
 
-        font-family: var(--font);
+        --color-input-height: 3em;
+
+        font-family: var(--field-font);
       }
 
       label {
@@ -27,17 +29,21 @@ export default {
 
       ::slotted(input[type='text']),
       ::slotted(input[type='number']) {
-        border: var(--border);
+        border: var(--input-border);
+        box-sizing: border-box;
         border-radius: var(--input-radius);
         padding: var(--input-padding);
+        width: 100%;
       }
 
       ::slotted(input[type='color']) {
         background: transparent;
+        box-sizing: border-box;
         border: none;
         border-radius: 0;
         padding: 0;
         width: 100%;
+        height: var(--color-input-height);
       }
     </style>
     <div>
@@ -58,7 +64,7 @@ export default {
         html`
           <style>
             :host {
-              --label-margins: 0 0.5em 0 0;
+              --label-margins: 0 0.25em 0 0;
             }
 
             ::slotted(input) {

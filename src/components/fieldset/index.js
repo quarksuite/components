@@ -3,30 +3,35 @@ import { html } from 'hybrids';
 import hostInit from '../common/host';
 
 export default {
-  legend: 'The Legend of Fieldset',
-  render: ({ legend }) => html`
+  group: 'The Legend of Fieldset',
+  render: ({ group }) => html`
     ${hostInit}
     <style>
       :host {
-        --border: 2px solid black;
-        --font: sans-serif;
+        --fieldset-border: 2px solid black;
+        --fieldset-font: sans-serif;
+
         --legend-padding: 0 0.5em;
         --legend-weight: 700;
 
-        font-family: var(--font);
+        font-family: var(--fieldset-font);
       }
 
       fieldset {
-        border: var(--border);
+        border: var(--fieldset-border);
       }
 
       legend {
         font-weight: var(--legend-weight);
         padding: var(--legend-padding);
       }
+
+      ::slotted(qs-field) {
+        display: inline-block;
+      }
     </style>
     <fieldset>
-      <legend>${legend}</legend>
+      <legend>${group}</legend>
       <slot></slot>
     </fieldset>
   `

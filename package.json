@@ -5,26 +5,18 @@
   "author": "Chatman R. Jr",
   "license": "MPL-2.0",
   "source": "src/index.js",
-  "main": "dist/qsui.js",
-  "module": "dist/qsui.es.js",
-  "umd:main": "dist/qsui.umd.js",
+  "main": "dist/quarksuite.js",
+  "module": "dist/quarksuite.es.js",
+  "umd:main": "dist/quarksuite.umd.js",
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@storybook/addon-knobs": "^5.2.6",
     "@storybook/html": "^5.2.6",
     "babel-loader": "^8.0.6",
-    "microbundle": "^0.11.0",
-    "parcel-bundler": "^1.12.4",
-    "postcss": "^7.0.26",
-    "postcss-import": "^12.0.1",
-    "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "raw-loader": "^4.0.0"
+    "microbundle": "^0.11.0"
   },
   "scripts": {
-    "storybook": "start-storybook -p 1360 --ci",
-    "dev": "parcel serve src/index.html --out-dir staging",
-    "staging": "parcel build src/index.html --out-dir www",
+    "dev": "start-storybook -p 1360 --ci",
     "build": "microbundle"
   },
   "dependencies": {

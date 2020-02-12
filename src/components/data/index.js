@@ -7,9 +7,10 @@ export default {
   data: {},
   variable: 'output',
   filename: 'system.js',
-  output: ({ data, variable }) =>
+  format: ({ data }) => JSON.stringify(data, null, 2),
+  output: ({ format, variable }) =>
     prism.highlight(
-      `const ${variable} = ${JSON.stringify(data, null, 2)};`,
+      `const ${variable} = ${format};`,
       prism.languages.javascript,
       'javascript'
     ),
@@ -27,13 +28,14 @@ export default {
 
           --theme-bg: white;
           --theme-padding: var(--label-padding);
-          --theme-keyword: red;
-          --theme-string: lime;
+          --theme-keyword-color: red;
+          --theme-string-color: lime;
+
+          font-family: var(--code-font);
+          font-size: var(--font-size);
         }
         .filename,
         .output-code {
-          font-family: var(--code-font);
-          font-size: var(--font-size);
           margin: 0;
         }
 
@@ -51,12 +53,12 @@ export default {
 
         /* prism theme */
         .token.keyword {
-          color: var(--theme-keyword);
+          color: var(--theme-keyword-color);
           font-weight: 700;
         }
 
         .token.string {
-          color: var(--theme-string);
+          color: var(--theme-string-color);
         }
       </style>
       <div class="filename"><code>${filename}</code></div>

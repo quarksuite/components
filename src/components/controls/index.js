@@ -10,8 +10,6 @@ export default {
         --form-flow: column wrap;
         --form-font: sans-serif;
         --form-margins: 0 0 1.25em 0;
-
-        --field-margins: calc(var(--form-margins) / 2);
       }
 
       form {
