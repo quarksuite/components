@@ -24,5 +24,6 @@ export const Demo = () => `
   <qs-field label="Sample Field" label-pos="top">
     <input type="color" />
   </qs-field>
+  <button type="button">Click me</button>
 </qs-controls>
 `;

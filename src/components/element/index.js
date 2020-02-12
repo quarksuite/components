@@ -10,34 +10,32 @@ export default {
       ${hostInit}
       <style>
         :host {
-          --color: black;
-          --margin: 0 0 0.5em 0;
-          --font-size: 1rem;
+          --element-color: black;
+          --element-margin: 0 0 0.5em 0;
+          --element-width: 100%;
+
+          --label-size: 1rem;
+
           --flex-flow: column nowrap;
           --align-items: center;
-          --width: 100%;
-        }
 
-        .element {
           display: flex;
           flex-flow: var(--flex-flow);
           align-items: var(--align-items);
         }
 
-        .element > div {
-          background: var(--color);
-          margin: var(--margin);
-          width: var(--width);
+        div {
+          background: var(--element-color);
+          margin: var(--element-margin);
+          width: var(--element-width);
           height: ${value};
         }
 
-        .element > code {
-          font-size: var(--font-size);
+        code {
+          font-size: var(--label-size);
         }
       </style>
-      <div class="element">
-        <div></div>
-        <code>${label}: ${value}</code>
-      </div>
+      <div></div>
+      <code>${label}: ${value}</code>
     `
 };

@@ -46,60 +46,58 @@ export default {
         height: var(--color-input-height);
       }
     </style>
-    <div>
-      ${labelPos === 'top' &&
-        html`
-          <style>
-            :host {
-              --label-margins: 0.5em 0 0 0;
-            }
-            ::slotted(input) {
-              margin: var(--label-margins);
-            }
-          </style>
-          <label for="${id}">${label}</label>
-          <slot></slot>
-        `}
-      ${labelPos === 'right' &&
-        html`
-          <style>
-            :host {
-              --label-margins: 0 0.25em 0 0;
-            }
+    ${labelPos === 'top' &&
+      html`
+        <style>
+          :host {
+            --label-margins: 0.5em 0 0 0;
+          }
+          ::slotted(input) {
+            margin: var(--label-margins);
+          }
+        </style>
+        <label for="${id}">${label}</label>
+        <slot></slot>
+      `}
+    ${labelPos === 'right' &&
+      html`
+        <style>
+          :host {
+            --label-margins: 0 0.25em 0 0;
+          }
 
-            ::slotted(input) {
-              margin: var(--label-margins);
-            }
-          </style>
-          <label><slot></slot>${label}</label>
-        `}
-      ${labelPos === 'bottom' &&
-        html`
-          <style>
-            :host {
-              --label-margins: 0 0 0.5em 0;
-            }
+          ::slotted(input) {
+            margin: var(--label-margins);
+          }
+        </style>
+        <label><slot></slot>${label}</label>
+      `}
+    ${labelPos === 'bottom' &&
+      html`
+        <style>
+          :host {
+            --label-margins: 0 0 0.5em 0;
+          }
 
-            ::slotted(input) {
-              margin: var(--label-margins);
-            }
-          </style>
-          <slot></slot>
-          <label for="${id}">${label}</label>
-        `}
-      ${labelPos === 'left' &&
-        html`
-          <style>
-            :host {
-              --label-margins: 0 0 0 0.5em;
-            }
+          ::slotted(input) {
+            margin: var(--label-margins);
+          }
+        </style>
+        <slot></slot>
+        <label for="${id}">${label}</label>
+      `}
+    ${labelPos === 'left' &&
+      html`
+        <style>
+          :host {
+            --label-margins: 0 0 0 0.5em;
+          }
 
-            ::slotted(input) {
-              margin: var(--label-margins);
-            }
-          </style>
-          <label>${label}<slot></slot></label>
-        `}
-    </div>
+          ::slotted(input) {
+            margin: var(--label-margins);
+          }
+        </style>
+        <label>${label}<slot></slot></label>
+      `}
   `
 };

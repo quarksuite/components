@@ -3,9 +3,9 @@ import { html } from 'hybrids';
 import hostInit from '../common/host';
 
 export default {
-  name: 'Sans',
+  label: 'Sans',
   stack: 'sans-serif',
-  render: ({ name, stack }) => html`
+  render: ({ label, stack }) => html`
     ${hostInit}
     <style>
       :host {
@@ -41,12 +41,11 @@ export default {
       .content {
         border: var(--content-border);
         padding: var(--content-padding);
+        font-family: ${stack};
         font-size: var(--content-size);
       }
     </style>
-    <div class="stack">
-      <div class="label">${name}: <code>${stack}</code></div>
-      <div class="content">The quick brown fox jumps over the lazy dog.</div>
-    </div>
+    <div class="label">${label}: <code>${stack}</code></div>
+    <div class="content">The quick brown fox jumps over the lazy dog.</div>
   `
 };

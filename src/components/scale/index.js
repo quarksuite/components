@@ -11,8 +11,8 @@ export default {
       ${hostInit}
       <style>
         :host {
-          --bg: black;
-          --color: white;
+          --label-bg: black;
+          --label-fg: white;
 
           --label-font: sans-serif;
           --label-size: 1.25em;
@@ -21,12 +21,15 @@ export default {
           --value-font: monospace;
           --value-opacity: 0.8;
 
+          --content-bg: var(--label-fg);
+          --content-fg: var(--label-bg);
           --content-border: 4px solid black;
           --content-padding: var(--label-padding);
         }
+
         .label {
-          background: var(--bg);
-          color: var(--color);
+          background: var(--label-bg);
+          color: var(--label-color);
           display: inline-block;
           font-family: var(--label-font);
           font-size: var(--label-size);
@@ -40,15 +43,14 @@ export default {
 
         .content {
           border: var(--content-border);
-          background: var(--color);
+          background: var(--content-bg);
+          color: var(--content-fg);
           padding: var(--content-padding);
           font-family: var(--font-system-serif);
           font-size: ${value};
         }
       </style>
-      <div class="value">
-        <div class="label">${label}: <code>${value}</code></div>
-        <div class="content">${content}</div>
-      </div>
+      <div class="label">${label}: <code>${value}</code></div>
+      <div class="content">${content}</div>
     `
 };
