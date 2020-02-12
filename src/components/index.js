@@ -1,17 +1,22 @@
-import QSUICustom from './ui-custom';
-import QSUIDataview from './ui-dataview';
-import QSUIMix from './ui-mix';
-import QSUIScheme from './ui-scheme';
-import QSUISysfonts from './ui-sysfonts';
-import QSUIProportion from './ui-proportion';
-import QSUIContent from './ui-content';
+// Control Elements
+import QSControls from './controls';
+import QSFieldset from './fieldset';
+import QSField from './field';
+
+// Display Elements
+import QSData from './data';
+import QSElement from './element';
+import QSFont from './font';
+import QSScale from './scale';
+import QSSwatch from './swatch';
 
 export {
-  QSUICustom,
-  QSUIDataview,
-  QSUIMix,
-  QSUIScheme,
-  QSUISysfonts,
-  QSUIProportion,
-  QSUIContent
+  QSControls,
+  QSFieldset,
+  QSField,
+  QSData,
+  QSElement,
+  QSFont,
+  QSScale,
+  QSSwatch
 };
