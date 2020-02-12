@@ -1,7 +1,7 @@
 import { html } from 'hybrids';
 import prism from 'prismjs';
 
-import hostInit from '../shared/host';
+import hostInit from '../common/host';
 
 export default {
   data: {},

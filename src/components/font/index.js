@@ -1,6 +1,6 @@
 import { html } from 'hybrids';
 
-import hostInit from '../shared/host';
+import hostInit from '../common/host';
 
 export default {
   name: 'Sans',
