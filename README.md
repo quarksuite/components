@@ -2,7 +2,7 @@
 
 This repo contains and documents components for building the Quarksuite desktop GUI. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
 
-## Components (as of v1.0.0)
+## Components (as of v1.1.0)
 
 Components in v1 are categorized by controls and display. Control components set simple layout rules for forms and input UI. Display components aid in processing and viewing data.
 
@@ -142,6 +142,7 @@ A display component for formatting data.
 + `data: Object = {}`: The actual data to format
 + `filename: String = 'system.js'`: The filename to label the data
 + `variable: String = 'output'`: The variable to capture the output
++ `hide: Boolean = false`: An option to hide the label
 
 ##### Theme Options
 
