@@ -14,7 +14,8 @@ export default {
       prism.languages.javascript,
       'javascript'
     ),
-  render: ({ data, variable, filename, output }) =>
+  hide: false,
+  render: ({ data, variable, filename, output, hide }) =>
     html`
       ${hostInit}
       <style>
@@ -61,6 +62,14 @@ export default {
           color: var(--theme-string-color);
         }
       </style>
+      ${hide
+        ? html`
+            <pre class="output-code"><code innerHTML="${output}"></code></pre>
+          `
+        : html`
+            <div class="filename"><code>${filename}</code></div>
+            <pre class="output-code"><code innerHTML="${output}"></code></pre>
+          `}
       <div class="filename"><code>${filename}</code></div>
       <pre class="output-code"><code innerHTML="${output}"></code></pre>
     `
