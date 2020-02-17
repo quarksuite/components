@@ -70,7 +70,5 @@ export default {
             <div class="filename"><code>${filename}</code></div>
             <pre class="output-code"><code innerHTML="${output}"></code></pre>
           `}
-      <div class="filename"><code>${filename}</code></div>
-      <pre class="output-code"><code innerHTML="${output}"></code></pre>
     `
 };
