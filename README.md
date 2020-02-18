@@ -39,7 +39,7 @@ npx snowpack
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Quarksuite Components (v1.1.0) Example</title>
+    <title>Quarksuite Components (v1.2.0) Example</title>
   </head>
   <body>
     <script type="module" src="/index.js"></script>
@@ -59,15 +59,15 @@ OR
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Quarksuite Components (v1.1.0) Example</title>
+    <title>Quarksuite Components (v1.2.0) Example</title>
   </head>
   <body>
-    <script src="https://unpkg.com/@quarksuite/components@v1.1.5/dist-web/index.js"></script>
+    <script src="https://unpkg.com/@quarksuite/components@v1.2.0/dist-web/index.js"></script>
   </body>
 </html>
 ```
 
-## Components (as of v1.1.x)
+## Components (as of v1.2.x)
 
 Components in v1 are categorized by controls and display. Control components set simple layout rules for forms and input UI. Display components aid in processing and viewing data.
 
