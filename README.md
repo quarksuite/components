@@ -1,6 +1,6 @@
 # Quarksuite (Components)
 
-This repo contains and documents components for building the (WIP) Quarksuite desktop GUI. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
+This repo contains and documents components for building Quarksuite GUIs. If you want to learn more about what this is and why it exists, please [visit the core repo](https://github.com/quarksuite/core).
 
 ## Installation
 
@@ -384,4 +384,3 @@ qs-swatch {
 ```html
 <qs-swatch value="#348ec9"></qs-swatch>
 ```
-
