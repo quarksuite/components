@@ -1,8 +1,73 @@
 # Quarksuite (Components)
 
-This repo contains and documents components for building the Quarksuite desktop GUI. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
+This repo contains and documents components for building the (WIP) Quarksuite desktop GUI. If you want to learn more about the what and why of the Quarksuite project, please [visit the core repo](https://github.com/quarksuite/core).
 
-## Components (as of v1.1.0)
+## Installation
+
+### As a Module
+
+>You’ll want to grab the latest Node.js LTS (v12.15.0) version if you want to use the library as a module. I recommend installing Yarn as well.
+
+```bash
+npm install @quarksuite/components
+
+# OR
+
+yarn add @quarksuite/components
+```
+
+Then in your target file:
+
+```js
+require('@quarksuite/components');
+
+// OR with ES Modules
+
+import '@quarksuite/components';
+```
+
+### In the Browser
+
+Same steps as above, then:
+
+```bash
+npx snowpack
+```
+
+```html
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quarksuite Components (v1.1.0) Example</title>
+  </head>
+  <body>
+    <script type="module" src="/index.js"></script>
+  </body>
+</html>
+```
+
+```js
+import '/web_modules/@quarksuite/components.js';
+```
+
+
+OR
+
+```html
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quarksuite Components (v1.1.0) Example</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/@quarksuite/components@v1.1.0/dist-web/index.js"></script>
+  </body>
+</html>
+```
+
+## Components (as of v1.1.x)
 
 Components in v1 are categorized by controls and display. Control components set simple layout rules for forms and input UI. Display components aid in processing and viewing data.
 

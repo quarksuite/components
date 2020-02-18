@@ -1,18 +1,39 @@
 {
   "name": "@quarksuite/components",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A web component library for building the Quarksuite GUI.",
   "author": "Chatman R. Jr",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "src/components/**/index.stories.js"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
   "license": "MPL-2.0",
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.2",
+    "@pika/plugin-build-web": "^0.9.2",
+    "@pika/plugin-standard-pkg": "^0.9.2",
     "@storybook/html": "^5.2.6",
     "babel-loader": "^8.0.6"
   },
   "scripts": {
     "dev": "start-storybook -p 1360 --ci",
-    "build": "microbundle"
+    "build": "pika build"
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.4.1",
