@@ -62,7 +62,7 @@ OR
     <title>Quarksuite Components (v1.1.0) Example</title>
   </head>
   <body>
-    <script src="https://unpkg.com/@quarksuite/components@v1.1.0/dist-web/index.js"></script>
+    <script src="https://unpkg.com/@quarksuite/components@v1.1.5/dist-web/index.js"></script>
   </body>
 </html>
 ```
