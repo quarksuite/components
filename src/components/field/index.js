@@ -11,9 +11,12 @@ export default {
     <style>
       :host {
         --field-font: sans-serif;
+
+        --label-font-size: 1.25em;
         --label-weight: 700;
 
         --input-border: 4px solid black;
+        --input-font-size: var(--label-font-size);
         --input-radius: 0.5em;
         --input-padding: 0.75em;
 
@@ -24,6 +27,7 @@ export default {
 
       label {
         display: block;
+        font-size: var(--label-font-size);
         font-weight: var(--label-weight);
       }
 
@@ -32,6 +36,7 @@ export default {
         border: var(--input-border);
         box-sizing: border-box;
         border-radius: var(--input-radius);
+        font-size: var(--input-font-size);
         padding: var(--input-padding);
         width: 100%;
       }
@@ -50,10 +55,10 @@ export default {
       html`
         <style>
           :host {
-            --label-margins: 0.5em 0 0 0;
+            --label-margin: 0.5em 0 0 0;
           }
-          ::slotted(input) {
-            margin: var(--label-margins);
+          label {
+            margin: var(--label-margin);
           }
         </style>
         <label for="${id}">${label}</label>
@@ -63,11 +68,11 @@ export default {
       html`
         <style>
           :host {
-            --label-margins: 0 0.25em 0 0;
+            --label-margin: 0 0.25em 0 0;
           }
 
-          ::slotted(input) {
-            margin: var(--label-margins);
+          label {
+            margin: var(--label-margin);
           }
         </style>
         <label><slot></slot>${label}</label>
@@ -76,11 +81,11 @@ export default {
       html`
         <style>
           :host {
-            --label-margins: 0 0 0.5em 0;
+            --label-margin: 0 0 0.5em 0;
           }
 
-          ::slotted(input) {
-            margin: var(--label-margins);
+          label {
+            margin: var(--label-margin);
           }
         </style>
         <slot></slot>
@@ -90,11 +95,11 @@ export default {
       html`
         <style>
           :host {
-            --label-margins: 0 0 0 0.5em;
+            --label-margin: 0 0 0 0.5em;
           }
 
-          ::slotted(input) {
-            margin: var(--label-margins);
+          label {
+            margin: var(--label-margin);
           }
         </style>
         <label>${label}<slot></slot></label>

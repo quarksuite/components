@@ -12,14 +12,34 @@ export default {
 };
 
 export const Demo = () => `
+<style>
+  qs-controls {
+    --form-font: monospace;
+    --form-font-size: 1rem;
+    --group-border: 4px solid gainsboro;
+    --field-label-font-size: 2em;
+  }
+
+  qs-fieldset label {
+    font-size: 1.25em;
+  }
+</style>
 <qs-controls>
-  <qs-fieldset legend="Checkbox Sample">
-    <label><input type="checkbox" /> first</label>
-    <label><input type="checkbox" /> second</label>
+  <qs-fieldset group="Checkbox Sample">
+    <qs-field label="first" label-pos="right">
+      <input type="checkbox" />
+    </qs-field>
+    <qs-field label="second" label-pos="right">
+      <input type="checkbox" />
+    </qs-field>
   </qs-fieldset>
-  <qs-fieldset legend="Radio Sample">
-    <label><input type="radio" /> first</label>
-    <label><input type="radio" /> second</label>
+  <qs-fieldset group="Radio Sample">
+    <qs-field label="first" label-pos="right">
+      <input type="radio" />
+    </qs-field>
+    <qs-field label="second" label-pos="right">
+      <input type="radio" />
+    </qs-field>
   </qs-fieldset>
   <qs-field label="Sample Field" label-pos="top">
     <input type="color" />
