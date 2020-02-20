@@ -20,6 +20,7 @@ export default {
         --button-padding: 1em;
 
         /* Internal qs-fieldset theming */
+        --group-background: white;
         --group-border: 2px solid black;
         --group-padding: 0.25em;
         --group-label-font-size: var(--form-font-size);
@@ -37,6 +38,8 @@ export default {
         --field-label-font-size: var(--form-font-size);
         --field-label-weight: 700;
         --field-label-margin: 0.5em 0 0 0;
+
+        --field-input-background: white;
         --field-input-border: 4px solid black;
         --field-input-font-size: var(--form-font-size);
         --field-input-radius: 0.5em;
@@ -52,6 +55,7 @@ export default {
       }
 
       ::slotted(qs-fieldset) {
+        --fieldset-background: var(--group-background);
         --fieldset-border: var(--group-border);
         --fieldset-padding: var(--group-padding);
         --fieldset-font: var(--form-font);
@@ -71,6 +75,7 @@ export default {
         --label-font-size: var(--field-label-font-size);
         --label-margin: var(--field-label-margin);
         --label-weight: var(--field-label-weight);
+        --input-background: var(--field-input-background);
         --input-border: var(--field-input-border);
         --input-font-size: var(--field-input-font-size);
         --input-radius: var(--field-input-radius);

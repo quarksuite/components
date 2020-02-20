@@ -15,6 +15,7 @@ export default {
         --label-font-size: 1.25em;
         --label-weight: 700;
 
+        --input-background: white;
         --input-border: 4px solid black;
         --input-font-size: var(--label-font-size);
         --input-radius: 0.5em;
@@ -31,13 +32,19 @@ export default {
         font-weight: var(--label-weight);
       }
 
+      ::slotted(input[type='file']),
       ::slotted(input[type='text']),
       ::slotted(input[type='number']) {
+        background: var(--input-background);
         border: var(--input-border);
         box-sizing: border-box;
         border-radius: var(--input-radius);
         font-size: var(--input-font-size);
         padding: var(--input-padding);
+        width: 100%;
+      }
+
+      ::slotted(input[type='range']) {
         width: 100%;
       }
 

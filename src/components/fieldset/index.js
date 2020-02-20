@@ -8,6 +8,7 @@ export default {
     ${hostInit}
     <style>
       :host {
+        --fieldset-background: white;
         --fieldset-border: 2px solid black;
         --fieldset-font: sans-serif;
         --fieldset-padding: 1em;
@@ -30,6 +31,7 @@ export default {
       }
 
       fieldset {
+        background: var(--fieldset-background);
         border: var(--fieldset-border);
         padding: var(--fieldset-padding);
       }
