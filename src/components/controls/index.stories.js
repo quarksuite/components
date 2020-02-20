@@ -11,7 +11,7 @@ export default {
   title: 'Controls|<qs-controls>'
 };
 
-define('storybook-demo', {
+define('storybook-controls', {
   render: () => html`
     <style>
       qs-controls {
@@ -47,4 +47,4 @@ define('storybook-demo', {
   `
 });
 
-export const Demo = () => `<storybook-demo></storybook-demo>`;
+export const Demo = () => `<storybook-controls></storybook-controls>`;

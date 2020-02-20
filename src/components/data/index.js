@@ -6,7 +6,7 @@ import hostInit from '../common/host';
 export default {
   data: {},
   variable: 'output',
-  label: 'system.js',
+  label: 'code',
   format: ({ data }) => JSON.stringify(data, null, 2),
   output: ({ format, variable }) =>
     prism.highlight(
@@ -14,41 +14,28 @@ export default {
       prism.languages.javascript,
       'javascript'
     ),
-  hide: false,
-  render: ({ data, variable, label, output, hide }) =>
+  render: ({ data, variable, label, output }) =>
     html`
       ${hostInit}
       <style>
         :host {
-          --label-bg: black;
-          --label-fg: white;
-          --label-padding: 1em;
-          --code-font: monospace;
-          --code-border: 4px solid black;
+          --font: monospace;
+          --border: 4px solid black;
           --font-size: 1.25em;
+          --padding: 1em;
 
           --theme-bg: white;
-          --theme-padding: var(--label-padding);
-          --theme-keyword-color: red;
-          --theme-string-color: lime;
+          --theme-padding: var(--padding);
+          --theme-keyword-color: crimson;
+          --theme-string-color: forestgreen;
 
-          font-family: var(--code-font);
+          font-family: var(--font);
           font-size: var(--font-size);
         }
-        .label,
-        .output-code {
-          margin: 0;
-        }
 
-        .label {
-          background: var(--label-bg);
-          color: var(--label-fg);
-          display: inline-block;
-          padding: var(--label-padding);
-        }
-        .output-code {
+        pre {
           background: var(--theme-bg);
-          border: var(--code-border);
+          border: var(--border);
           padding: var(--theme-padding);
         }
 
@@ -62,13 +49,6 @@ export default {
           color: var(--theme-string-color);
         }
       </style>
-      ${hide
-        ? html`
-            <pre class="output-code"><code innerHTML="${output}"></code></pre>
-          `
-        : html`
-            <div class="label"><code>${label}</code></div>
-            <pre class="output-code"><code innerHTML="${output}"></code></pre>
-          `}
+      <pre><code innerHTML="${output}"></code></pre>
     `
 };
