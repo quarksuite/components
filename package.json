@@ -3,6 +3,10 @@
   "version": "1.2.1",
   "description": "A web component library for building the Quarksuite GUI.",
   "author": "Chatman R. Jr",
+  "main": "pkg/dist-node/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/quarksuite/components.git"

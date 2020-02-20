@@ -1,0 +1,43 @@
+{
+  "name": "@quarksuite/components",
+  "description": "A web component library for building the Quarksuite GUI.",
+  "version": "1.2.1",
+  "license": "MPL-2.0",
+  "files": [
+    "dist-*/",
+    "bin/"
+  ],
+  "pika": true,
+  "sideEffects": false,
+  "keywords": [
+    "quarksuite",
+    "web components",
+    "toolkit",
+    "ui"
+  ],
+  "homepage": "https://github.com/quarksuite/components",
+  "bugs": {
+    "url": "https://github.com/quarksuite/components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quarksuite/components.git"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.1",
+    "hybrids": "^4.0.3",
+    "prismjs": "^1.18.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.2",
+    "@pika/plugin-build-web": "^0.9.2",
+    "@pika/plugin-standard-pkg": "^0.9.2",
+    "@storybook/html": "^5.2.6",
+    "babel-loader": "^8.0.6"
+  },
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js",
+  "module": "dist-web/index.js"
+}
