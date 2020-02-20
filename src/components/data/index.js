@@ -6,7 +6,7 @@ import hostInit from '../common/host';
 export default {
   data: {},
   variable: 'output',
-  filename: 'system.js',
+  label: 'system.js',
   format: ({ data }) => JSON.stringify(data, null, 2),
   output: ({ format, variable }) =>
     prism.highlight(
@@ -15,7 +15,7 @@ export default {
       'javascript'
     ),
   hide: false,
-  render: ({ data, variable, filename, output, hide }) =>
+  render: ({ data, variable, label, output, hide }) =>
     html`
       ${hostInit}
       <style>
@@ -35,12 +35,12 @@ export default {
           font-family: var(--code-font);
           font-size: var(--font-size);
         }
-        .filename,
+        .label,
         .output-code {
           margin: 0;
         }
 
-        .filename {
+        .label {
           background: var(--label-bg);
           color: var(--label-fg);
           display: inline-block;
@@ -67,7 +67,7 @@ export default {
             <pre class="output-code"><code innerHTML="${output}"></code></pre>
           `
         : html`
-            <div class="filename"><code>${filename}</code></div>
+            <div class="label"><code>${label}</code></div>
             <pre class="output-code"><code innerHTML="${output}"></code></pre>
           `}
     `

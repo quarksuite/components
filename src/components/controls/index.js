@@ -21,6 +21,7 @@ export default {
 
         /* Internal qs-fieldset theming */
         --group-border: 2px solid black;
+        --group-padding: 0.25em;
         --group-label-font-size: var(--form-font-size);
         --group-label-padding: 0 0.75em;
         --group-label-weight: 700;
@@ -52,6 +53,7 @@ export default {
 
       ::slotted(qs-fieldset) {
         --fieldset-border: var(--group-border);
+        --fieldset-padding: var(--group-padding);
         --fieldset-font: var(--form-font);
         --legend-font-size: var(--group-label-font-size);
         --legend-padding: var(--group-label-padding);

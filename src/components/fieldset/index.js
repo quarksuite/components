@@ -10,6 +10,7 @@ export default {
       :host {
         --fieldset-border: 2px solid black;
         --fieldset-font: sans-serif;
+        --fieldset-padding: 1em;
 
         --legend-font-size: 1.25em;
         --legend-padding: 0 0.5em;
@@ -30,6 +31,7 @@ export default {
 
       fieldset {
         border: var(--fieldset-border);
+        padding: var(--fieldset-padding);
       }
 
       legend {

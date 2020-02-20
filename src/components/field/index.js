@@ -5,8 +5,8 @@ import hostInit from '../common/host';
 export default {
   label: 'Read the Label',
   labelPos: 'top',
-  id: 'id',
-  render: ({ label, labelPos, id }) => html`
+  labelFor: '',
+  render: ({ label, labelPos, labelFor }) => html`
     ${hostInit}
     <style>
       :host {
@@ -57,11 +57,12 @@ export default {
           :host {
             --label-margin: 0.5em 0 0 0;
           }
-          label {
+
+          ::slotted(input) {
             margin: var(--label-margin);
           }
         </style>
-        <label for="${id}">${label}</label>
+        <label for="${labelFor}">${label}</label>
         <slot></slot>
       `}
     ${labelPos === 'right' &&
@@ -71,11 +72,11 @@ export default {
             --label-margin: 0 0.25em 0 0;
           }
 
-          label {
+          ::slotted(input) {
             margin: var(--label-margin);
           }
         </style>
-        <label><slot></slot>${label}</label>
+        <label><slot></slot> ${label}</label>
       `}
     ${labelPos === 'bottom' &&
       html`
@@ -84,12 +85,12 @@ export default {
             --label-margin: 0 0 0.5em 0;
           }
 
-          label {
+          ::slotted(input) {
             margin: var(--label-margin);
           }
         </style>
         <slot></slot>
-        <label for="${id}">${label}</label>
+        <label for="${labelFor}">${label}</label>
       `}
     ${labelPos === 'left' &&
       html`
@@ -98,11 +99,11 @@ export default {
             --label-margin: 0 0 0 0.5em;
           }
 
-          label {
+          ::slotted(input) {
             margin: var(--label-margin);
           }
         </style>
-        <label>${label}<slot></slot></label>
+        <label>${label} <slot></slot></label>
       `}
   `
 };
