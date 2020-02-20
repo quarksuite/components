@@ -3,19 +3,23 @@ import hostInit from "../common/host.js";
 export default {
   label: 'Read the Label',
   labelPos: 'top',
-  id: 'id',
+  labelFor: '',
   render: ({
     label,
     labelPos,
-    id
+    labelFor
   }) => html`
     ${hostInit}
     <style>
       :host {
         --field-font: sans-serif;
+
+        --label-font-size: 1.25em;
         --label-weight: 700;
 
+        --input-background: white;
         --input-border: 4px solid black;
+        --input-font-size: var(--label-font-size);
         --input-radius: 0.5em;
         --input-padding: 0.75em;
 
@@ -26,15 +30,23 @@ export default {
 
       label {
         display: block;
+        font-size: var(--label-font-size);
         font-weight: var(--label-weight);
       }
 
+      ::slotted(input[type='file']),
       ::slotted(input[type='text']),
       ::slotted(input[type='number']) {
+        background: var(--input-background);
         border: var(--input-border);
         box-sizing: border-box;
         border-radius: var(--input-radius);
+        font-size: var(--input-font-size);
         padding: var(--input-padding);
+        width: 100%;
+      }
+
+      ::slotted(input[type='range']) {
         width: 100%;
       }
 
@@ -51,51 +63,52 @@ export default {
     ${labelPos === 'top' && html`
         <style>
           :host {
-            --label-margins: 0.5em 0 0 0;
+            --label-margin: 0.5em 0 0 0;
           }
+
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
-        <label for="${id}">${label}</label>
+        <label for="${labelFor}">${label}</label>
         <slot></slot>
       `}
     ${labelPos === 'right' && html`
         <style>
           :host {
-            --label-margins: 0 0.25em 0 0;
+            --label-margin: 0 0.25em 0 0;
           }
 
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
-        <label><slot></slot>${label}</label>
+        <label><slot></slot> ${label}</label>
       `}
     ${labelPos === 'bottom' && html`
         <style>
           :host {
-            --label-margins: 0 0 0.5em 0;
+            --label-margin: 0 0 0.5em 0;
           }
 
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
         <slot></slot>
-        <label for="${id}">${label}</label>
+        <label for="${labelFor}">${label}</label>
       `}
     ${labelPos === 'left' && html`
         <style>
           :host {
-            --label-margins: 0 0 0 0.5em;
+            --label-margin: 0 0 0 0.5em;
           }
 
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
-        <label>${label}<slot></slot></label>
+        <label>${label} <slot></slot></label>
       `}
   `
 };

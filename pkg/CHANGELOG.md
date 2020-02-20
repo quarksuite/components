@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.3.0
+
+### Added
+
++ more robust theme options for control components. [See the API](API.md) for details
+
+### Changed
+
++ theme options for display components have been refactored
++ `id` property of `<qs-field>` updated to `labelFor`
++ `<qs-data>` has been trimmed of its label. Theme options modified [See the API](API.md) for details
+
 ## v1.2.0
 
 ### Updated

@@ -73,6 +73,7 @@ var index = {
       :host {
         --form-flow: column wrap;
         --form-font: sans-serif;
+        --form-font-size: 1.25em;
         --form-margins: 0 0 1.25em 0;
 
         --button-bg: white;
@@ -81,6 +82,33 @@ var index = {
         --button-border: 4px solid black;
         --button-radius: 0.5em;
         --button-padding: 1em;
+
+        /* Internal qs-fieldset theming */
+        --group-background: white;
+        --group-border: 2px solid black;
+        --group-padding: 0.25em;
+        --group-label-font-size: var(--form-font-size);
+        --group-label-padding: 0 0.75em;
+        --group-label-weight: 700;
+
+        --group-option-label-font-size: var(--form-font-size);
+        --group-option-label-weight: 400;
+        --group-option-input-border: 4px solid black;
+        --group-option-input-font-size: var(--group-option-label-font-size);
+        --group-option-input-radius: 0.5em;
+        --group-option-input-padding: 0.75em;
+
+        /* Internal qs-field theming */
+        --field-label-font-size: var(--form-font-size);
+        --field-label-weight: 700;
+        --field-label-margin: 0.5em 0 0 0;
+
+        --field-input-background: white;
+        --field-input-border: 4px solid black;
+        --field-input-font-size: var(--form-font-size);
+        --field-input-radius: 0.5em;
+        --field-input-padding: 0.75em;
+        --field-color-height: 3em;
       }
 
       form {
@@ -88,6 +116,35 @@ var index = {
         flex-flow: var(--form-flow);
         font-family: var(--form-font);
         margin: var(--form-margins);
+      }
+
+      ::slotted(qs-fieldset) {
+        --fieldset-background: var(--group-background);
+        --fieldset-border: var(--group-border);
+        --fieldset-padding: var(--group-padding);
+        --fieldset-font: var(--form-font);
+        --legend-font-size: var(--group-label-font-size);
+        --legend-padding: var(--group-label-padding);
+        --legend-weight: var(--group-label-weight);
+        --option-label-weight: var(--group-option-label-weight);
+        --option-label-font-size: var(--group-option-label-font-size);
+        --option-input-border: var(--group-option-input-border);
+        --option-input-font-size: var(--group-option-input-font-size);
+        --option-input-radius: var(--group-option-input-radius);
+        --option-input-padding: var(--group-option-input-padding);
+      }
+
+      ::slotted(qs-field) {
+        --field-font: var(--form-font);
+        --label-font-size: var(--field-label-font-size);
+        --label-margin: var(--field-label-margin);
+        --label-weight: var(--field-label-weight);
+        --input-background: var(--field-input-background);
+        --input-border: var(--field-input-border);
+        --input-font-size: var(--field-input-font-size);
+        --input-radius: var(--field-input-radius);
+        --input-padding: var(--field-input-padding);
+        --color-input-height: var(--field-color-height);
       }
 
       ::slotted(button) {
@@ -113,25 +170,51 @@ var index$1 = {
     ${hostInit}
     <style>
       :host {
+        --fieldset-background: white;
         --fieldset-border: 2px solid black;
         --fieldset-font: sans-serif;
+        --fieldset-padding: 1em;
 
+        --legend-font-size: 1.25em;
         --legend-padding: 0 0.5em;
         --legend-weight: 700;
+
+        /* Internal qs-field options */
+        --option-label-font-size: 1em;
+        --option-label-weight: 400;
+        --option-input-border: 4px solid black;
+        --option-input-font-size: var(--label-font-size);
+        --option-input-radius: 0.5em;
+        --option-input-padding: 0.75em;
+
+        --option-color-height: 3em;
 
         font-family: var(--fieldset-font);
       }
 
       fieldset {
+        background: var(--fieldset-background);
         border: var(--fieldset-border);
+        padding: var(--fieldset-padding);
       }
 
       legend {
+        font-size: var(--legend-font-size);
         font-weight: var(--legend-weight);
         padding: var(--legend-padding);
       }
 
       ::slotted(qs-field) {
+        --label-weight: var(--option-label-weight);
+        --label-font-size: var(--option-label-font-size);
+
+        --input-border: 4px solid black;
+        --input-font-size: var(--label-font-size);
+        --input-radius: 0.5em;
+        --input-padding: 0.75em;
+
+        --color-input-height: 3em;
+
         display: inline-block;
       }
     </style>
@@ -145,19 +228,23 @@ var index$1 = {
 var index$2 = {
   label: 'Read the Label',
   labelPos: 'top',
-  id: 'id',
+  labelFor: '',
   render: ({
     label,
     labelPos,
-    id
+    labelFor
   }) => hybrids.html`
     ${hostInit}
     <style>
       :host {
         --field-font: sans-serif;
+
+        --label-font-size: 1.25em;
         --label-weight: 700;
 
+        --input-background: white;
         --input-border: 4px solid black;
+        --input-font-size: var(--label-font-size);
         --input-radius: 0.5em;
         --input-padding: 0.75em;
 
@@ -168,15 +255,23 @@ var index$2 = {
 
       label {
         display: block;
+        font-size: var(--label-font-size);
         font-weight: var(--label-weight);
       }
 
+      ::slotted(input[type='file']),
       ::slotted(input[type='text']),
       ::slotted(input[type='number']) {
+        background: var(--input-background);
         border: var(--input-border);
         box-sizing: border-box;
         border-radius: var(--input-radius);
+        font-size: var(--input-font-size);
         padding: var(--input-padding);
+        width: 100%;
+      }
+
+      ::slotted(input[type='range']) {
         width: 100%;
       }
 
@@ -193,51 +288,52 @@ var index$2 = {
     ${labelPos === 'top' && hybrids.html`
         <style>
           :host {
-            --label-margins: 0.5em 0 0 0;
+            --label-margin: 0.5em 0 0 0;
           }
+
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
-        <label for="${id}">${label}</label>
+        <label for="${labelFor}">${label}</label>
         <slot></slot>
       `}
     ${labelPos === 'right' && hybrids.html`
         <style>
           :host {
-            --label-margins: 0 0.25em 0 0;
+            --label-margin: 0 0.25em 0 0;
           }
 
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
-        <label><slot></slot>${label}</label>
+        <label><slot></slot> ${label}</label>
       `}
     ${labelPos === 'bottom' && hybrids.html`
         <style>
           :host {
-            --label-margins: 0 0 0.5em 0;
+            --label-margin: 0 0 0.5em 0;
           }
 
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
         <slot></slot>
-        <label for="${id}">${label}</label>
+        <label for="${labelFor}">${label}</label>
       `}
     ${labelPos === 'left' && hybrids.html`
         <style>
           :host {
-            --label-margins: 0 0 0 0.5em;
+            --label-margin: 0 0 0 0.5em;
           }
 
           ::slotted(input) {
-            margin: var(--label-margins);
+            margin: var(--label-margin);
           }
         </style>
-        <label>${label}<slot></slot></label>
+        <label>${label} <slot></slot></label>
       `}
   `
 };
@@ -245,7 +341,7 @@ var index$2 = {
 var index$3 = {
   data: {},
   variable: 'output',
-  filename: 'system.js',
+  label: 'code',
   format: ({
     data
   }) => JSON.stringify(data, null, 2),
@@ -253,46 +349,32 @@ var index$3 = {
     format,
     variable
   }) => prism.highlight(`const ${variable} = ${format};`, prism.languages.javascript, 'javascript'),
-  hide: false,
   render: ({
     data,
     variable,
-    filename,
-    output,
-    hide
+    label,
+    output
   }) => hybrids.html`
       ${hostInit}
       <style>
         :host {
-          --label-bg: black;
-          --label-fg: white;
-          --label-padding: 1em;
-          --code-font: monospace;
-          --code-border: 4px solid black;
+          --font: monospace;
+          --border: 4px solid black;
           --font-size: 1.25em;
+          --padding: 1em;
 
           --theme-bg: white;
-          --theme-padding: var(--label-padding);
-          --theme-keyword-color: red;
-          --theme-string-color: lime;
+          --theme-padding: var(--padding);
+          --theme-keyword-color: crimson;
+          --theme-string-color: forestgreen;
 
-          font-family: var(--code-font);
+          font-family: var(--font);
           font-size: var(--font-size);
         }
-        .filename,
-        .output-code {
-          margin: 0;
-        }
 
-        .filename {
-          background: var(--label-bg);
-          color: var(--label-fg);
-          display: inline-block;
-          padding: var(--label-padding);
-        }
-        .output-code {
+        pre {
           background: var(--theme-bg);
-          border: var(--code-border);
+          border: var(--border);
           padding: var(--theme-padding);
         }
 
@@ -306,12 +388,7 @@ var index$3 = {
           color: var(--theme-string-color);
         }
       </style>
-      ${hide ? hybrids.html`
-            <pre class="output-code"><code innerHTML="${output}"></code></pre>
-          ` : hybrids.html`
-            <div class="filename"><code>${filename}</code></div>
-            <pre class="output-code"><code innerHTML="${output}"></code></pre>
-          `}
+      <pre><code innerHTML="${output}"></code></pre>
     `
 };
 
