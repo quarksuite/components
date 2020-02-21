@@ -38,6 +38,7 @@ export default {
         pre {
           background: var(--theme-bg);
           border: var(--border);
+          overflow-x: auto;
           padding: var(--theme-padding);
         }
 
