@@ -67,6 +67,36 @@ OR
 </html>
 ```
 
+## UI Samples
+
+Below are some rough examples of how the core and components work together to create, display, and capture baseline data.
+
+### Color
+
+#### Custom Palette
+
+<iframe src="https://color-ui-sample-custom.now.sh" height="640"></iframe>
+
+#### Basic Color Scheme
+
+<iframe src="https://color-ui-sample-scheme.now.sh"height="640"></iframe>
+
+### Content
+
+#### System Font Stacks
+
+<iframe src="https://font-ui-sample-system.now.sh" height="640"></iframe>
+
+#### Modular Scale
+
+<iframe src="https://font-ui-sample-scale.now.sh" height="640"></iframe>
+
+### Proportion
+
+#### Modular Scale
+
+<iframe src="https://proportion-ui-sample-scale.now.sh" height="640"></iframe>
+
 ## API
 
 See the [API documentation](API.md).
