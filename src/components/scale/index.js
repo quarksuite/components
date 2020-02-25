@@ -29,7 +29,7 @@ export default {
 
         .label {
           background: var(--label-bg);
-          color: var(--label-color);
+          color: var(--label-fg);
           display: inline-block;
           font-family: var(--label-font);
           font-size: var(--label-size);

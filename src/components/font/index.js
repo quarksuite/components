@@ -18,6 +18,8 @@ export default {
         --value-font: monospace;
         --value-opacity: 0.8;
 
+        --content-bg: var(--label-fg);
+        --content-fg: var(--label-bg);
         --content-border: 4px solid black;
         --content-padding: calc(var(--label-padding) / 1.5);
         --content-size: calc(var(--label-size) * 1.25);
@@ -39,6 +41,8 @@ export default {
       }
 
       .content {
+        background: var(--content-bg);
+        color: var(--content-fg);
         border: var(--content-border);
         padding: var(--content-padding);
         font-family: ${stack};
