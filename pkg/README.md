@@ -75,24 +75,32 @@ Below are some rough examples of how the core and components work together to cr
 
 #### [Custom Palette](https://color-ui-sample-custom.now.sh)
 
-<iframe src="https://color-ui-sample-custom.now.sh" height="640"></iframe>
+![Custom Palette Sample](assets/color-ui-sample-custom.gif)
+
 #### [Basic Color Scheme](https://color-ui-sample-scheme.now.sh)
 
-<iframe src="https://color-ui-sample-scheme.now.sh" height="640"></iframe>
+![Basic Scheme Sample](assets/color-ui-sample-scheme.gif)
+
+#### [Color Variants](https://color-ui-sample-variants.now.sh)
+
+![Color Variants Sample](assets/color-ui-sample-variants.gif)
 
 ### Content
 
 #### [System Font Stacks](https://font-ui-sample-system.now.sh)
 
-<iframe src="https://font-ui-sample-system.now.sh" height="640"></iframe>
+![System Font Stack Sample](assets/font-ui-sample-system.gif)
+
 #### [Modular Scale](https://font-ui-sample-scale.now.sh)
 
-<iframe src="https://font-ui-sample-scale.now.sh" height="640"></iframe>
+![Content Modular Scale Sample](assets/font-ui-sample-scale.gif)
+
 ### Proportion
 
 #### [Modular Scale](https://proportion-ui-sample-scale.now.sh)
 
-<iframe src="https://proportion-ui-sample-scale.now.sh" height="640"></iframe>
+![Proportion Modular Scale Sample](assets/proportion-ui-sample-scale.gif)
+
 ## API
 
 See the [API documentation](API.md).
