@@ -1,7 +1,7 @@
 {
   "name": "@quarksuite/components",
   "description": "A web component library for building the Quarksuite GUI.",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "license": "MPL-2.0",
   "files": [
     "dist-*/",
