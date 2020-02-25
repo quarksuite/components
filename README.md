@@ -73,30 +73,26 @@ Below are some rough examples of how the core and components work together to cr
 
 ### Color
 
-#### Custom Palette
+#### [Custom Palette](https://color-ui-sample-custom.now.sh)
 
 <iframe src="https://color-ui-sample-custom.now.sh" height="640"></iframe>
+#### [Basic Color Scheme](https://color-ui-sample-scheme.now.sh)
 
-#### Basic Color Scheme
-
-<iframe src="https://color-ui-sample-scheme.now.sh"height="640"></iframe>
+<iframe src="https://color-ui-sample-scheme.now.sh" height="640"></iframe>
 
 ### Content
 
-#### System Font Stacks
+#### [System Font Stacks](https://font-ui-sample-system.now.sh)
 
 <iframe src="https://font-ui-sample-system.now.sh" height="640"></iframe>
-
-#### Modular Scale
+#### [Modular Scale](https://font-ui-sample-scale.now.sh)
 
 <iframe src="https://font-ui-sample-scale.now.sh" height="640"></iframe>
-
 ### Proportion
 
-#### Modular Scale
+#### [Modular Scale](https://proportion-ui-sample-scale.now.sh)
 
 <iframe src="https://proportion-ui-sample-scale.now.sh" height="640"></iframe>
-
 ## API
 
 See the [API documentation](API.md).
