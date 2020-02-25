@@ -452,6 +452,8 @@ var index$5 = {
         --value-font: monospace;
         --value-opacity: 0.8;
 
+        --content-bg: var(--label-fg);
+        --content-fg: var(--label-bg);
         --content-border: 4px solid black;
         --content-padding: calc(var(--label-padding) / 1.5);
         --content-size: calc(var(--label-size) * 1.25);
@@ -473,6 +475,8 @@ var index$5 = {
       }
 
       .content {
+        background: var(--content-bg);
+        color: var(--content-fg);
         border: var(--content-border);
         padding: var(--content-padding);
         font-family: ${stack};
@@ -514,7 +518,7 @@ var index$6 = {
 
         .label {
           background: var(--label-bg);
-          color: var(--label-color);
+          color: var(--label-fg);
           display: inline-block;
           font-family: var(--label-font);
           font-size: var(--label-size);
