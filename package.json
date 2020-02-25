@@ -27,7 +27,7 @@
         "@pika/plugin-standard-pkg",
         {
           "exclude": [
-            "src/components/**/index.stories.js"
+            "*/**/index.stories.js"
           ]
         }
       ],
