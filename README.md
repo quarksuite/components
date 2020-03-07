@@ -21,14 +21,22 @@ Then in your target file:
 ```js
 require('@quarksuite/components');
 
-// OR with ES Modules
+// OR if using Webpack/Parcel
 
 import '@quarksuite/components';
 ```
 
 ### In the Browser
 
-Same steps as above, then:
+#### Snowpack
+
+```bash
+npm install @quarksuite/components
+
+# OR
+
+yarn add @quarksuite/components
+```
 
 ```bash
 npx snowpack
@@ -52,7 +60,7 @@ import '/web_modules/@quarksuite/components.js';
 ```
 
 
-OR
+#### Unpkg
 
 ```html
 <html lang="en">
@@ -62,7 +70,7 @@ OR
     <title>Quarksuite Components (v1.3.x) Example</title>
   </head>
   <body>
-    <script src="https://unpkg.com/@quarksuite/components@v1.3.1/dist-web/index.js"></script>
+    <script src="https://unpkg.com/@quarksuite/components@v1.4.0/dist-web/index.bundled.js"></script>
   </body>
 </html>
 ```
