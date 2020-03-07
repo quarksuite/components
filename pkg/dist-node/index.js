@@ -2,6 +2,7 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+require('@webcomponents/webcomponentsjs/webcomponents-bundle.js');
 var hybrids = require('hybrids');
 var prism = _interopDefault(require('prismjs'));
 
