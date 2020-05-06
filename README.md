@@ -1,5 +1,9 @@
 # Quarksuite (Components)
 
+*Quarksuite grew beyond the need for a dedicated UI library or app. It's a toolkit. An app would steal focus from making the kit portable and flexible.*
+
+*You can still browse the code if you want*
+
 This repo contains and documents components for building Quarksuite GUIs. If you want to learn more about what this is and why it exists, please [visit the core repo](https://github.com/quarksuite/core).
 
 ## Installation
